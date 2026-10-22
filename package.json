@@ -1,0 +1,20 @@
+{
+  "name": "campusx-platform",
+  "version": "1.0.0",
+  "description": "CampusX — Learn • Share • Grow | College Academic Resource-Sharing Platform",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "test": "node backend/test-api.js"
+  },
+  "keywords": [
+    "campusx",
+    "college",
+    "academic",
+    "notes",
+    "projects",
+    "roadmaps"
+  ],
+  "author": "CampusX Student Team",
+  "license": "ISC"
+}

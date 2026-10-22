@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Second-Hand Engineering material — Buy • Sell • Reuse | CampusX</title>
+    <meta name="description"
+        content="Allow students to buy and sell useful second-hand engineering study material, calculators, and graphics tools within the college community." />
+      <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ========================================================================== HEADER & NAVIGATION ========================================================================== -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo">🎓 Campus<span>X</span></div>
+                <span class="logo-tagline">Learn • Share • Grow</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <ul class="nav-desktop">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="notes.html" class="nav-link">Notes</a></li>
+                <li><a href="roadmap.html" class="nav-link">Roadmaps</a></li>
+                <li><a href="pyq.html" class="nav-link">PYQs</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="teams.html" class="nav-link">Teams</a></li>
+                <li><a href="material.html" class="nav-link active">Marketplace</a></li>
+                <li><a href="career.html" class="nav-link">Career</a></li>
+            </ul>
+
+            <!-- Actions -->
+            <div class="header-actions">
+                <button class="search-trigger-btn" data-trigger-search="true" title="Search Marketplace (Ctrl+K)">
+                    <span>🔍</span>
+                    <span>Search</span>
+                    <span class="search-shortcut">Ctrl K</span>
+                </button>
+
+                <button class="btn btn-primary btn-sm" data-open-modal="sellModal">
+                    Sell Your Material
+                </button>
+
+                <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                    ☰
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Mobile Drawer & Overlay -->
+    <div class="mobile-nav-overlay"></div>
+
+    <div class="mobile-nav-drawer">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+            <li><a href="notes.html" class="mobile-nav-link">Notes</a></li>
+            <li><a href="roadmap.html" class="mobile-nav-link">Roadmaps</a></li>
+            <li><a href="pyq.html" class="mobile-nav-link">PYQ Papers</a></li>
+            <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+            <li><a href="teams.html" class="mobile-nav-link">Team Formation</a></li>
+            <li><a href="material.html" class="mobile-nav-link active">Marketplace</a></li>
+            <li><a href="career.html" class="mobile-nav-link">Career Roadmaps</a></li>
+        </ul>
+
+        <div class="mobile-nav-actions">
+            <button class="btn btn-primary btn-full" data-open-modal="sellModal">
+                Sell Your Material
+            </button>
+
+            <button class="btn btn-secondary btn-full" data-open-auth="login">
+                Login
+            </button>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- ========================================================================== HERO BANNER ========================================================================== -->
+        <section class="page-header-banner">
+            <div class="container">
+
+                <div class="page-breadcrumbs">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-sep">/</span>
+                    <span>Second-Hand Engineering material</span>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.25rem;">
+
+                    <div>
+                        <span class="section-tag">Campus Marketplace</span>
+
+                        <h1 style="font-size: 2.3rem; margin-bottom: 0.35rem;">
+                            Second-Hand Engineering material
+                        </h1>
+
+                        <p style="color: var(--color-text-muted); font-size: 1.05rem; max-width: 650px;">
+                            <strong>Buy • Sell • Reuse</strong> — Allow students to buy and sell useful engineering
+                            material within the college community.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg" data-open-modal="sellModal">
+                        Sell Your Material
+                    </button>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================== BUY • SELL • REUSE WORKFLOW ========================================================================== -->
+        <section
+            style="padding: 2.5rem 0; background: #ffffff; border-bottom: 1px solid var(--color-border);">
+
+            <div class="container">
+
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <h2 style="font-size: 1.75rem;">Buy • Sell • Reuse</h2>
+                </div>
+
+                <div class="reuse-flow-grid" style="margin: 0;">
+
+                    <div class="reuse-step-card">
+                        <div class="reuse-step-number">1</div>
+                        <div class="reuse-step-icon">🔍</div>
+
+                        <h3 class="reuse-step-title">
+                            1. Browse material
+                        </h3>
+
+                        <p class="reuse-step-desc">
+                            Find PDF printouts, calculators and Engineering Graphics material listed by students.
+                        </p>
+                    </div>
+
+                    <div class="reuse-step-card">
+                        <div class="reuse-step-number">2</div>
+                        <div class="reuse-step-icon">🤝</div>
+
+                        <h3 class="reuse-step-title">
+                            2. Connect with Seller
+                        </h3>
+
+                        <p class="reuse-step-desc">
+                            Check the material details, price and condition, then contact the seller.
+                        </p>
+                    </div>
+
+                    <div class="reuse-step-card">
+                        <div class="reuse-step-number">3</div>
+                        <div class="reuse-step-icon">♻️</div>
+
+                        <h3 class="reuse-step-title">
+                            3. Buy & Reuse
+                        </h3>
+
+                        <p class="reuse-step-desc">
+                            Meet at a convenient campus location, complete the exchange and give the material a second
+                            life.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================== MARKETPLACE ITEMS CATALOG ========================================================================== -->
+        <section class="section">
+
+            <div class="container">
+
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-market-tab="all">
+                        All Categories
+                    </button>
+
+                    <button class="tab-btn" data-market-tab="pdf">
+                        📄 PDF Printouts
+                    </button>
+
+                    <button class="tab-btn" data-market-tab="calculators">
+                        🧮 Calculators
+                    </button>
+
+                    <button class="tab-btn" data-market-tab="graphics">
+                        📐 Engineering Graphics material
+                    </button>
+                </div>
+
+                <!-- Filter Controls Toolbar -->
+                <div class="filter-toolbar">
+
+                    <div class="filter-group" style="flex: 2;">
+                        <label class="filter-label">
+                            Search material
+                        </label>
+
+                        <input
+                            type="text"
+                            class="filter-input"
+                            id="marketSearchInput"
+                            name="marketSearch"
+                            placeholder="Search by name (e.g. Casio, Drafter, Notes)..."
+                            autocomplete="off"
+                            maxlength="100"
+                        />
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            Condition
+                        </label>
+
+                        <select
+                            class="filter-select"
+                            id="marketConditionFilter"
+                            name="marketCondition"
+                        >
+                            <option value="all">All Conditions</option>
+                            <option value="Like New">Like New</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Community Exchange Notice -->
+                <div
+                    style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-md); padding: 0.85rem 1.15rem; margin-bottom: 1.75rem; font-size: 0.85rem; color: #166534;">
+
+                    <strong>CampusX Community Exchange:</strong>
+                    CampusX connects engineering students directly for study material.
+                    All exchanges take place safely on campus.
+
+                </div>
+
+                <!-- Dynamic Listings Grid -->
+                <div class="cards-grid-3" id="marketItemsGrid">
+                    <!-- Populated by script.js -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================== SELL YOUR MATERIAL CTA SECTION ========================================================================== -->
+        <section class="section section-alt">
+
+            <div class="container">
+
+                <div class="cta-box" style="text-align: center;">
+
+                    <h2 class="cta-title">
+                        Give Your material a Second Life
+                    </h2>
+
+                    <p class="cta-desc">
+                        Have books, calculators, printouts or Engineering Graphics material you no longer need?
+                        Let another student use them.
+                    </p>
+
+                    <button class="btn btn-primary btn-lg" data-open-modal="sellModal">
+                        Sell Your Material
+                    </button>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================== FOOTER ========================================================================== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="logo" style="color: #fff;">
+                        🎓 Campus<span>X</span>
+                    </a>
+
+                    <div class="logo-tagline">
+                        Learn • Share • Grow
+                    </div>
+
+                    <p class="footer-desc">
+                        CampusX connects engineering students with academic resources, structured learning roadmaps,
+                        projects, teams, and affordable second-hand study material.
+                    </p>
+
+                    <span style="font-size: 0.78rem; color: #94a3b8;">
+                        College CEP Student Project
+                    </span>
+
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Categories</h4>
+
+                    <ul class="footer-links">
+                        <li>
+                            <a href="material.html?category=pdf">
+                                PDF Printouts
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="material.html?category=calculators">
+                                Calculators
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="material.html?category=graphics">
+                                Engineering Graphics
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)" data-open-modal="sellModal" role="button">
+                                Sell Your Material
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Platform</h4>
+
+                    <ul class="footer-links">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="roadmap.html">Roadmaps</a>
+                        </li>
+
+                        <li>
+                            <a href="teams.html">Team Formation</a>
+                        </li>
+
+                        <li>
+                            <a href="notes.html">Notes</a>
+                        </li>
+
+                        <li>
+                            <a href="pyq.html">Previous Year Papers</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Community</h4>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="index.html#about">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#how-it-works">
+                                How It Works
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)" data-community-guidelines="true" role="button">
+                                Community Guidelines
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <div class="footer-bottom-badge">
+                    Built for students, by students.
+                </div>
+
+                <div>
+                    © 2026 CampusX — Learn • Share • Grow.
+                    A student-driven platform for the college community.
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ========================================================================== MODALS ========================================================================== -->
+
+    <!-- Sell Material Modal -->
+    <div class="modal-overlay" id="sellModal">
+
+        <div class="modal-container">
+
+            <div class="modal-header">
+
+                <div class="modal-title">
+                    Sell Your Material
+                </div>
+
+                <button class="modal-close-btn" data-close-modal="true" type="button">
+                    ✕
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div
+                    style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 1rem; font-size: 0.8rem; color: var(--color-text-muted);">
+
+                    <strong>Community Guidelines:</strong>
+                    Peer-to-peer exchange only.
+                    Meet in safe public areas on campus like the library or department quads.
+
+                </div>
+
+                <form id="sellMaterialForm">
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="sellTitle">
+                            Material Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="sellTitle"
+                            name="title"
+                            placeholder="e.g. Scientific Calculator"
+                            maxlength="100"
+                            autocomplete="off"
+                            required
+                        />
+
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="sellCategory">
+                                Category *
+                            </label>
+
+                            <select
+                                class="form-control"
+                                id="sellCategory"
+                                name="category"
+                                required
+                            >
+                                <option value="pdf">PDF Printouts</option>
+                                <option value="calculators">Calculators</option>
+                                <option value="graphics">Engineering Graphics material</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="sellCondition">
+                                Condition *
+                            </label>
+
+                            <select
+                                class="form-control"
+                                id="sellCondition"
+                                name="condition"
+                                required
+                            >
+                                <option value="Like New">Like New</option>
+                                <option value="Good">Good</option>
+                                <option value="Fair">Fair</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="sellPrice">
+                                Price *
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="sellPrice"
+                                name="price"
+                                placeholder="Price in ₹"
+                                min="0"
+                                max="1000000"
+                                step="1"
+                                required
+                            />
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="sellLocation">
+                                Location
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="sellLocation"
+                                name="location"
+                                placeholder="Campus Location"
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+
+                        </div>
+
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                        <div class="form-group">
+                            <label class="form-label" for="sellEmail">Seller Email</label>
+                            <input type="email" class="form-control" id="sellEmail" name="email" placeholder="seller@campusx.edu" maxlength="120" autocomplete="email" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="sellPhone">Seller Mobile</label>
+                            <input type="tel" class="form-control" id="sellPhone" name="phone" placeholder="+91 98901 23456" maxlength="20" autocomplete="tel" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="sellDesc">
+                            Description
+                        </label>
+
+                        <textarea
+                            class="form-control"
+                            id="sellDesc"
+                            name="description"
+                            rows="3"
+                            placeholder="Describe the material condition..."
+                            maxlength="500"
+                        ></textarea>
+
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="sellName">
+                                Seller Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="sellName"
+                                name="sellerName"
+                                placeholder="Seller Name"
+                                maxlength="100"
+                                autocomplete="name"
+                            />
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="sellYear">
+                                Year
+                            </label>
+
+                            <select
+                                class="form-control"
+                                id="sellYear"
+                                name="year"
+                            >
+                                <option value="First Year">First Year</option>
+                                <option value="Second Year">Second Year</option>
+                                <option value="Third Year">Third Year</option>
+                                <option value="Final Year">Final Year</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="sellContact">
+                            Contact
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="sellContact"
+                            name="contact"
+                            placeholder="Contact Details"
+                            maxlength="150"
+                            autocomplete="off"
+                        />
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Submit Material
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Seller Modal -->
+    <div class="modal-overlay" id="contactSellerModal">
+
+        <div class="modal-container">
+
+            <div class="modal-header">
+
+                <div class="modal-title">
+                    Connect with Seller
+                </div>
+
+                <button class="modal-close-btn" data-close-modal="true" type="button">
+                    ✕
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div style="text-align: center; margin-bottom: 1.25rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.35rem;">
+                        🤝
+                    </div>
+
+                    <h3 id="contactItemTitle" style="font-size: 1.15rem; margin-bottom: 0.2rem;">
+                        Material Details
+                    </h3>
+
+                    <p id="contactSellerName" style="color: var(--color-primary); font-weight: 600; font-size: 0.9rem;">
+                        Student Seller
+                    </p>
+                </div>
+
+                <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0.85rem; margin-bottom: 1rem;">
+                    <div style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.35rem;">Campus Exchange Info:</div>
+                    <div id="contactSellerLocation" style="font-size: 0.85rem; margin-bottom: 0.25rem;">📍 Preferred Pickup: <strong id="contactLocationText">Main Canteen / Campus Library</strong></div>
+                    <div id="contactSellerEmail" style="font-size: 0.85rem; margin-bottom: 0.25rem;">📧 Email: <a href="mailto:seller@campusx.edu" id="contactMailtoLink" class="text-primary">seller@college.edu</a></div>
+                    <div id="contactSellerPhone" style="font-size: 0.85rem;">📱 Contact / WhatsApp: <span id="contactPhoneText">+91 98XXX XXXXX</span></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="contactSellerMessage">
+                        Message to Seller
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        id="contactSellerMessage"
+                        name="message"
+                        rows="3"
+                        maxlength="500"
+                        placeholder="Hi, I'm interested in buying this material. When and where can we meet on campus?"
+                    ></textarea>
+                </div>
+
+                <div style="display: flex; gap: 0.5rem;">
+                    <button
+                        class="btn btn-secondary btn-full"
+                        type="button"
+                        id="copySellerInfoBtn"
+                    >
+                        📋 Copy Seller Info
+                    </button>
+
+                    <button
+                        class="btn btn-primary btn-full"
+                        type="button"
+                        data-send-inquiry="true"
+                    >
+                        ✉️ Send Inquiry
+                    </button>
+                </div>
+
+                <p style="font-size: 0.75rem; color: var(--color-text-muted); text-align: center; margin-top: 0.75rem;">
+                    💡 Safety Tip: Always meet at public campus spots during daylight. Inspect condition before completing transaction.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="modal-overlay" id="searchModal">
+
+        <div class="modal-container search-modal-container">
+
+            <div class="search-input-wrapper">
+
+                <span class="search-icon-big">
+                    🔍
+                </span>
+
+                <input
+                    type="text"
+                    class="search-input-field"
+                    id="globalSearchInput"
+                    placeholder="Search roadmaps, notes, projects, teams, material..."
+                    autocomplete="off"
+                    maxlength="100"
+                />
+
+                <button
+                    class="modal-close-btn"
+                    data-close-modal="true"
+                    type="button"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+            <ul class="search-results-list" id="globalSearchResults"></ul>
+
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+
+        <div class="modal-container">
+
+            <div class="modal-header">
+
+                <div class="modal-title">
+                    🎓 CampusX Account
+                </div>
+
+                <button
+                    class="modal-close-btn"
+                    data-close-modal="true"
+                    type="button"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="auth-tabs">
+
+                    <button
+                        class="auth-tab-btn active"
+                        id="loginTabBtn"
+                        type="button"
+                    >
+                        Login
+                    </button>
+
+                    <button
+                        class="auth-tab-btn"
+                        id="registerTabBtn"
+                        type="button"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="loginIdentifier">
+                            Email / Mobile
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="loginIdentifier"
+                            name="loginIdentifier"
+                            placeholder="Email or Mobile"
+                            autocomplete="username"
+                            maxlength="150"
+                            required
+                        />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="loginPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="loginPassword"
+                            name="password"
+                            placeholder="Password"
+                            autocomplete="current-password"
+                            maxlength="128"
+                            required
+                        />
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-full"
+                        style="margin-top: 0.75rem;"
+                    >
+                        Login
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" style="display: none;" novalidate>
+                  <div class="form-group">
+                    <label class="form-label" for="regName">Full Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="regName"
+                      name="name"
+                      placeholder="Full Name"
+                      autocomplete="name"
+                      maxlength="80"
+                      required
+                    />
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div class="form-group">
+                      <label class="form-label" for="regEmail">Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="regEmail"
+                        name="email"
+                        placeholder="Email Address"
+                        autocomplete="email"
+                        maxlength="120"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="regMobile">Mobile</label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="regMobile"
+                        name="mobile"
+                        placeholder="Mobile Number"
+                        autocomplete="tel"
+                        inputmode="numeric"
+                        maxlength="15"
+                      />
+                    </div>
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div class="form-group">
+                      <label class="form-label" for="regBranch">Branch</label>
+                      <select class="form-control" id="regBranch" name="branch">
+                        <option>Information Technology</option>
+                        <option>Computer Science</option>
+                        <option>Electronics</option>
+                        <option>Mechanical</option>
+                        <option>Civil</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="regYear">Year</label>
+                      <select class="form-control" id="regYear" name="year">
+                        <option>First Year</option>
+                        <option>Second Year</option>
+                        <option>Third Year</option>
+                        <option>Final Year</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div class="form-group">
+                      <label class="form-label" for="regPassword">Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="regPassword"
+                        name="password"
+                        placeholder="Password"
+                        autocomplete="new-password"
+                        minlength="8"
+                        maxlength="128"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="regConfirmPassword">Confirm Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="regConfirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm Password"
+                        autocomplete="new-password"
+                        minlength="8"
+                        maxlength="128"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">
+                    Register
+                  </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

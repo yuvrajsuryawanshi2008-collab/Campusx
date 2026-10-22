@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Your Team — Hackathon Team Formation | CampusX</title>
+  <meta name="description"
+    content="Build the right team. Turn ideas into projects. Find complementary engineering teammates for hackathons and projects on CampusX." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ========================================================================== HEADER & NAVIGATION ========================================================================== -->
+  <header class="header">
+    <div class="container header-container">
+
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo">🎓 Campus<span>X</span></div>
+        <span class="logo-tagline">Learn • Share • Grow</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-desktop">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="notes.html" class="nav-link">Notes</a></li>
+        <li><a href="roadmap.html" class="nav-link">Roadmaps</a></li>
+        <li><a href="pyq.html" class="nav-link">PYQs</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="teams.html" class="nav-link active">Teams</a></li>
+        <li><a href="material.html" class="nav-link">Marketplace</a></li>
+        <li><a href="career.html" class="nav-link">Career</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+
+        <button
+          class="search-trigger-btn"
+          data-trigger-search="true"
+          title="Search CampusX (Ctrl+K)"
+          type="button"
+        >
+          <span>🔍</span>
+          <span>Search</span>
+          <span class="search-shortcut">Ctrl K</span>
+        </button>
+
+        <button
+          class="btn btn-primary btn-sm"
+          data-open-modal="createProfileModal"
+          type="button"
+        >
+          Create Your Profile
+        </button>
+
+        <button
+          class="mobile-menu-btn"
+          aria-label="Toggle Navigation Menu"
+          type="button"
+        >
+          ☰
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Overlay -->
+  <div class="mobile-nav-overlay"></div>
+
+  <div class="mobile-nav-drawer">
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="notes.html" class="mobile-nav-link">Notes</a></li>
+      <li><a href="roadmap.html" class="mobile-nav-link">Roadmaps</a></li>
+      <li><a href="pyq.html" class="mobile-nav-link">PYQ Papers</a></li>
+      <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+      <li><a href="teams.html" class="mobile-nav-link active">Team Formation</a></li>
+      <li><a href="material.html" class="mobile-nav-link">Marketplace</a></li>
+      <li><a href="career.html" class="mobile-nav-link">Career Roadmaps</a></li>
+    </ul>
+
+    <div class="mobile-nav-actions">
+
+      <button
+        class="btn btn-primary btn-full"
+        data-open-modal="createProfileModal"
+        type="button"
+      >
+        Create Your Profile
+      </button>
+
+      <button
+        class="btn btn-secondary btn-full"
+        data-open-auth="login"
+        type="button"
+      >
+        Login
+      </button>
+
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ========================================================================== HERO BANNER ========================================================================== -->
+    <section class="page-header-banner">
+
+      <div class="container">
+
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>Find Your Team</span>
+        </div>
+
+        <div
+          style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.25rem;">
+
+          <div>
+
+            <span class="section-tag">Team Matchmaking</span>
+
+            <h1 style="font-size: 2.3rem; margin-bottom: 0.35rem;">
+              Find Your Team
+            </h1>
+
+            <p style="color: var(--color-text-muted); font-size: 1.05rem; max-width: 650px;">
+              <strong>Build the right team. Turn ideas into projects.</strong>
+              Connect with students with complementary skills for hackathons,
+              college projects, and competitions.
+            </p>
+
+          </div>
+
+          <button
+            class="btn btn-primary btn-lg"
+            data-open-modal="createProfileModal"
+            type="button"
+          >
+            Create Your Profile
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================== FILTERS & STUDENT TEAM DIRECTORY ========================================================================== -->
+    <section class="section">
+
+      <div class="container">
+
+        <!-- Filter Controls Toolbar -->
+        <div class="filter-toolbar">
+
+          <div class="filter-group" style="flex: 2;">
+
+            <label class="filter-label" for="teamSearchInput">
+              Search Skills or Roles
+            </label>
+
+            <input
+              type="text"
+              class="filter-input"
+              id="teamSearchInput"
+              name="teamSearch"
+              placeholder="e.g. React, Python, UI/UX, Backend..."
+              autocomplete="off"
+              maxlength="100"
+            />
+
+          </div>
+
+          <div class="filter-group">
+
+            <label class="filter-label" for="teamRoleFilter">
+              Role
+            </label>
+
+            <select
+              class="filter-select"
+              id="teamRoleFilter"
+              name="teamRole"
+            >
+              <option value="all">All Roles</option>
+              <option value="frontend">Frontend Developer</option>
+              <option value="backend">Backend Developer</option>
+              <option value="fullstack">Full Stack Developer</option>
+              <option value="uiux">UI/UX Designer</option>
+              <option value="aiml">AI / ML Developer</option>
+              <option value="cloud">Cloud / DevOps</option>
+            </select>
+
+          </div>
+
+          <div class="filter-group">
+
+            <label class="filter-label" for="teamYearFilter">
+              Year
+            </label>
+
+            <select
+              class="filter-select"
+              id="teamYearFilter"
+              name="teamYear"
+            >
+              <option value="all">All Years</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+            </select>
+
+          </div>
+
+          <div class="filter-group">
+
+            <label class="filter-label" for="teamBranchFilter">
+              Branch
+            </label>
+
+            <select
+              class="filter-select"
+              id="teamBranchFilter"
+              name="teamBranch"
+            >
+              <option value="all">All Branches</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Electronics (EnTC)">Electronics</option>
+              <option value="Mechanical Engineering">Mechanical</option>
+            </select>
+
+          </div>
+
+        </div>
+
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+
+          <h3 style="font-size: 1.2rem;">
+            Teammate Directory
+          </h3>
+
+          <button
+            class="btn btn-primary btn-sm"
+            data-open-modal="createProfileModal"
+            type="button"
+          >
+            + Create Profile
+          </button>
+
+        </div>
+
+        <!-- Dynamic Teammates Grid -->
+        <div class="cards-grid-3" id="teamsGrid">
+          <!-- Populated by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================== FOOTER ========================================================================== -->
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a href="index.html" class="logo" style="color: #fff;">
+            🎓 Campus<span>X</span>
+          </a>
+
+          <div class="logo-tagline">
+            Learn • Share • Grow
+          </div>
+
+          <p class="footer-desc">
+            CampusX connects engineering students with academic resources,
+            structured learning roadmaps, projects, teams, and affordable
+            second-hand study material.
+          </p>
+
+          <span style="font-size: 0.78rem; color: #94a3b8;">
+            College CEP Student Project
+          </span>
+
+        </div>
+
+        <div>
+
+          <h4 class="footer-heading">
+            Roles
+          </h4>
+
+          <ul class="footer-links">
+            <li><a href="teams.html?role=frontend">Frontend Developer</a></li>
+            <li><a href="teams.html?role=backend">Backend Developer</a></li>
+            <li><a href="teams.html?role=aiml">AI/ML Developer</a></li>
+            <li><a href="teams.html?role=uiux">UI/UX Designer</a></li>
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h4 class="footer-heading">
+            Platform
+          </h4>
+
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roadmap.html">Roadmaps</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="material.html">Marketplace</a></li>
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h4 class="footer-heading">
+            Community
+          </h4>
+
+          <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <div class="footer-bottom-badge">
+          Built for students, by students.
+        </div>
+
+        <div>
+          © 2026 CampusX — Learn • Share • Grow.
+          A student-driven platform for the college community.
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================== MODALS ========================================================================== -->
+
+  <!-- Create Team Profile Modal -->
+  <div class="modal-overlay" id="createProfileModal">
+
+    <div class="modal-container">
+
+      <div class="modal-header">
+
+        <div class="modal-title">
+          🤝 Create Your Profile
+        </div>
+
+        <button
+          class="modal-close-btn"
+          data-close-modal="true"
+          type="button"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <form id="createProfileForm">
+
+          <div class="form-group">
+
+            <label class="form-label" for="profName">
+              Name *
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="profName"
+              name="name"
+              placeholder="Your Name"
+              autocomplete="name"
+              maxlength="100"
+              required
+            />
+
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+
+            <div class="form-group">
+
+              <label class="form-label" for="profBranch">
+                Branch *
+              </label>
+
+              <select
+                class="form-control"
+                id="profBranch"
+                name="branch"
+                required
+              >
+                <option>Computer Science</option>
+                <option>Information Technology</option>
+                <option>Electronics (EnTC)</option>
+                <option>Mechanical Engineering</option>
+                <option>Civil</option>
+              </select>
+
+            </div>
+
+            <div class="form-group">
+
+              <label class="form-label" for="profYear">
+                Year *
+              </label>
+
+              <select
+                class="form-control"
+                id="profYear"
+                name="year"
+                required
+              >
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+                <option>4th Year</option>
+              </select>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label" for="profRole">
+              Role *
+            </label>
+
+            <select
+              class="form-control"
+              id="profRole"
+              name="role"
+              required
+            >
+              <option>Frontend Developer</option>
+              <option>Backend Developer</option>
+              <option>Full Stack Developer</option>
+              <option>UI/UX Designer</option>
+              <option>AI/ML Developer</option>
+              <option>Data Analyst</option>
+              <option>Cyber Security</option>
+              <option>Cloud Engineer</option>
+              <option>Hardware Engineer</option>
+              <option>Research</option>
+              <option>Presenter</option>
+              <option>Team Leader</option>
+            </select>
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label" for="profSkills">
+              Skills (comma-separated) *
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="profSkills"
+              name="skills"
+              placeholder="e.g. React, Python, Git"
+              autocomplete="off"
+              maxlength="300"
+              required
+            />
+
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+
+            <div class="form-group">
+
+              <label class="form-label" for="profGithub">
+                GitHub
+              </label>
+
+              <input
+                type="url"
+                class="form-control"
+                id="profGithub"
+                name="github"
+                placeholder="GitHub Profile Link"
+                autocomplete="url"
+                maxlength="300"
+                inputmode="url"
+              />
+
+            </div>
+
+            <div class="form-group">
+
+              <label class="form-label" for="profLinkedin">
+                LinkedIn
+              </label>
+
+              <input
+                type="url"
+                class="form-control"
+                id="profLinkedin"
+                name="linkedin"
+                placeholder="LinkedIn Profile Link"
+                autocomplete="url"
+                maxlength="300"
+                inputmode="url"
+              />
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label" for="profAvailability">
+              Availability
+            </label>
+
+            <select
+              class="form-control"
+              id="profAvailability"
+              name="availability"
+            >
+              <option>Available for Hackathons</option>
+              <option>Available for College Projects</option>
+              <option>Available for Competitions</option>
+            </select>
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label" for="profAbout">
+              About / Experience
+            </label>
+
+            <textarea
+              class="form-control"
+              id="profAbout"
+              name="about"
+              rows="3"
+              maxlength="500"
+              placeholder="Briefly describe your experience and what you want to build..."
+            ></textarea>
+
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="profEmail">Email</label>
+              <input type="email" class="form-control" id="profEmail" name="email" placeholder="student@campusx.edu" maxlength="120" autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profPhone">Mobile / WhatsApp</label>
+              <input type="tel" class="form-control" id="profPhone" name="phone" placeholder="+91 98765 43210" maxlength="20" autocomplete="tel" />
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="profGithub">GitHub Profile URL</label>
+              <input type="url" class="form-control" id="profGithub" name="github" placeholder="https://github.com/..." maxlength="200" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profLinkedin">LinkedIn Profile URL</label>
+              <input type="url" class="form-control" id="profLinkedin" name="linkedin" placeholder="https://linkedin.com/in/..." maxlength="200" />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+          >
+            Create Profile
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Search Modal -->
+  <div class="modal-overlay" id="searchModal">
+
+    <div class="modal-container search-modal-container">
+
+      <div class="search-input-wrapper">
+
+        <span class="search-icon-big">
+          🔍
+        </span>
+
+        <input
+          type="text"
+          class="search-input-field"
+          id="globalSearchInput"
+          placeholder="Search roadmaps, notes, projects, teams, material..."
+          autocomplete="off"
+          maxlength="100"
+        />
+
+        <button
+          class="modal-close-btn"
+          data-close-modal="true"
+          type="button"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <ul
+        class="search-results-list"
+        id="globalSearchResults"
+      ></ul>
+
+    </div>
+  </div>
+
+  <!-- Auth Modal -->
+  <div class="modal-overlay" id="authModal">
+
+    <div class="modal-container">
+
+      <div class="modal-header">
+
+        <div class="modal-title">
+          🎓 CampusX Account
+        </div>
+
+        <button
+          class="modal-close-btn"
+          data-close-modal="true"
+          type="button"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="auth-tabs">
+
+          <button
+            class="auth-tab-btn active"
+            id="loginTabBtn"
+            type="button"
+          >
+            Login
+          </button>
+
+          <button
+            class="auth-tab-btn"
+            id="registerTabBtn"
+            type="button"
+          >
+            Register
+          </button>
+
+        </div>
+
+        <form id="loginForm">
+
+          <div class="form-group">
+
+            <label class="form-label" for="loginIdentifier">
+              Email / Mobile
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="loginIdentifier"
+              name="loginIdentifier"
+              placeholder="Email or Mobile"
+              autocomplete="username"
+              maxlength="150"
+              required
+            />
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label" for="loginPassword">
+              Password
+            </label>
+
+            <input
+              type="password"
+              class="form-control"
+              id="loginPassword"
+              name="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              maxlength="128"
+              required
+            />
+
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+            style="margin-top: 0.75rem;"
+          >
+            Login
+          </button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" style="display: none;" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="regName">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="regName"
+              name="name"
+              placeholder="Full Name"
+              autocomplete="name"
+              maxlength="80"
+              required
+            />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regEmail">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="regEmail"
+                name="email"
+                placeholder="Email Address"
+                autocomplete="email"
+                maxlength="120"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regMobile">Mobile</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="regMobile"
+                name="mobile"
+                placeholder="Mobile Number"
+                autocomplete="tel"
+                inputmode="numeric"
+                maxlength="15"
+              />
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regBranch">Branch</label>
+              <select class="form-control" id="regBranch" name="branch">
+                <option>Information Technology</option>
+                <option>Computer Science</option>
+                <option>Electronics</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regYear">Year</label>
+              <select class="form-control" id="regYear" name="year">
+                <option>First Year</option>
+                <option>Second Year</option>
+                <option>Third Year</option>
+                <option>Final Year</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="regPassword"
+                name="password"
+                placeholder="Password"
+                autocomplete="new-password"
+                minlength="8"
+                maxlength="128"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regConfirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="regConfirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                autocomplete="new-password"
+                minlength="8"
+                maxlength="128"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">
+            Register
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Connect with Teammate Modal -->
+  <div class="modal-overlay" id="connectTeammateModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">🤝 Connect with Teammate</div>
+        <button class="modal-close-btn" data-close-modal="true" type="button">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.25rem;">
+          <div class="member-avatar" id="teamModalAvatar">ST</div>
+          <div>
+            <h3 id="teamModalName" style="font-size: 1.15rem; margin-bottom: 0.15rem;">Student Name</h3>
+            <div id="teamModalRole" style="font-size: 0.82rem; font-weight: 600; color: var(--color-primary);">Role</div>
+            <div id="teamModalInfo" style="font-size: 0.78rem; color: var(--color-text-muted);">Year • Branch</div>
+          </div>
+        </div>
+
+        <div style="background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0.85rem; margin-bottom: 1rem;">
+          <div style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.35rem;">Verified Peer Contact Channels:</div>
+          <div id="teamModalEmail" style="font-size: 0.85rem; margin-bottom: 0.25rem;">📧 Email: <a href="mailto:student@campusx.edu" id="teamModalMailto" class="text-primary">student@college.edu</a></div>
+          <div id="teamModalGithub" style="font-size: 0.85rem; margin-bottom: 0.25rem;">💻 Profile / GitHub: <span id="teamModalGithubText">N/A</span></div>
+          <div id="teamModalLinkedin" style="font-size: 0.85rem;">🔗 LinkedIn: <span id="teamModalLinkedinText">N/A</span></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="teamPeerMessage">Message / Collaboration Pitch</label>
+          <textarea
+            class="form-control"
+            id="teamPeerMessage"
+            rows="3"
+            maxlength="500"
+            placeholder="Hi, I saw your profile on CampusX and we're assembling a team for the upcoming hackathon..."
+          ></textarea>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-secondary btn-full" type="button" id="copyContactBtn">
+            📋 Copy Contact Info
+          </button>
+          <button class="btn btn-primary btn-full" type="button" id="sendEmailPeerBtn">
+            ✉️ Open in Email Client
+          </button>
+        </div>
+
+        <p style="font-size: 0.75rem; color: var(--color-text-muted); text-align: center; margin-top: 0.75rem;">
+          Direct peer-to-peer connection. Automated team invitations and in-app chat will sync with the CampusX backend API.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Roadmaps — Technology Pathways | CampusX</title>
+  <meta
+    name="description"
+    content="Explore technology career paths and required skills for engineering students on CampusX."
+  />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header-container">
+
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo">🎓 Campus<span>X</span></div>
+        <span class="logo-tagline">Learn • Share • Grow</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-desktop">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="notes.html" class="nav-link">Notes</a></li>
+        <li><a href="roadmap.html" class="nav-link">Roadmaps</a></li>
+        <li><a href="pyq.html" class="nav-link">PYQs</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="teams.html" class="nav-link">Teams</a></li>
+        <li><a href="material.html" class="nav-link">Marketplace</a></li>
+        <li><a href="career.html" class="nav-link active">Career</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+
+        <button
+          type="button"
+          class="search-trigger-btn"
+          data-trigger-search="true"
+          title="Search CampusX (Ctrl+K)"
+        >
+          <span>🔍</span>
+          <span>Search</span>
+          <span class="search-shortcut">Ctrl K</span>
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary btn-sm"
+          data-open-auth="login"
+        >
+          Login
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          data-open-auth="register"
+        >
+          Join Free
+        </button>
+
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          aria-label="Toggle Navigation Menu"
+        >
+          ☰
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Overlay -->
+  <div class="mobile-nav-overlay"></div>
+
+  <div class="mobile-nav-drawer">
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="notes.html" class="mobile-nav-link">Notes</a></li>
+      <li><a href="roadmap.html" class="mobile-nav-link">Roadmaps</a></li>
+      <li><a href="pyq.html" class="mobile-nav-link">PYQ Papers</a></li>
+      <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+      <li><a href="teams.html" class="mobile-nav-link">Team Formation</a></li>
+      <li><a href="material.html" class="mobile-nav-link">Marketplace</a></li>
+      <li><a href="career.html" class="mobile-nav-link active">Career Roadmaps</a></li>
+    </ul>
+
+    <div class="mobile-nav-actions">
+
+      <button
+        type="button"
+        class="btn btn-secondary btn-full"
+        data-open-auth="login"
+      >
+        Login
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary btn-full"
+        data-open-auth="register"
+      >
+        Join CampusX
+      </button>
+
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ==========================================================================
+         HERO BANNER
+         ========================================================================== -->
+    <section class="page-header-banner">
+      <div class="container">
+
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>Career Roadmaps</span>
+        </div>
+
+        <span class="section-tag">Career Pathways</span>
+
+        <h1 style="font-size: 2.3rem; margin-bottom: 0.35rem;">
+          Career Roadmaps
+        </h1>
+
+        <p
+          style="
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+            max-width: 700px;
+          "
+        >
+          Explore technology career paths and required skills. Each path shows
+          realistic skill requirements without promising jobs or salaries.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CAREER ROADMAPS CATALOG
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Career Navigation Tabs -->
+        <div class="filter-tabs" style="margin-bottom: 2rem;">
+          <a href="#swe" class="tab-btn active">Software Engineer</a>
+          <a href="#frontend" class="tab-btn">Frontend Developer</a>
+          <a href="#backend" class="tab-btn">Backend Developer</a>
+          <a href="#aiml" class="tab-btn">AI / ML Engineer</a>
+          <a href="#devops" class="tab-btn">Cloud & DevOps</a>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+
+          <!-- 1. Software Engineer -->
+          <div class="card" id="swe">
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+
+              <div>
+
+                <span
+                  class="badge badge-indigo"
+                  style="margin-bottom: 0.35rem;"
+                >
+                  Career Path
+                </span>
+
+                <h2 style="font-size: 1.6rem; margin-bottom: 0.25rem;">
+                  Software Engineer
+                </h2>
+
+                <p
+                  style="
+                    color: var(--color-text-muted);
+                    font-size: 0.9rem;
+                  "
+                >
+                  Focuses on computer science fundamentals, data structures,
+                  algorithms, and system design.
+                </p>
+
+              </div>
+
+              <span class="badge badge-indigo">
+                Career Pathway
+              </span>
+
+            </div>
+
+            <div
+              style="
+                background: var(--color-card);
+                border: 1px solid var(--color-border);
+                border-radius: var(--radius-md);
+                padding: 1rem;
+                margin: 0.85rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                font-size: 0.82rem;
+                font-weight: 700;
+              "
+            >
+              <span>Fundamentals</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Core Skills</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Tools</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Projects</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Internship</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Interview Prep</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span style="color: var(--color-primary);">Job</span>
+            </div>
+
+            <div class="cards-grid-3" style="gap: 1rem;">
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Core Skills
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Data Structures, Algorithms, OOP, Operating Systems,
+                  DBMS & SQL, Computer Networks.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Tools
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Git, GitHub, Linux Shell, Debuggers, Unit Testing.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Interview Preparation
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Problem-solving practice, time/space complexity analysis,
+                  system design basics.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 2. Frontend Developer -->
+          <div class="card" id="frontend">
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+
+              <div>
+
+                <span
+                  class="badge badge-indigo"
+                  style="margin-bottom: 0.35rem;"
+                >
+                  Career Path
+                </span>
+
+                <h2 style="font-size: 1.6rem; margin-bottom: 0.25rem;">
+                  Frontend Developer
+                </h2>
+
+                <p
+                  style="
+                    color: var(--color-text-muted);
+                    font-size: 0.9rem;
+                  "
+                >
+                  Builds responsive, accessible, and interactive user
+                  interfaces for web applications.
+                </p>
+
+              </div>
+
+              <span class="badge badge-indigo">
+                Career Pathway
+              </span>
+
+            </div>
+
+            <div
+              style="
+                background: var(--color-card);
+                border: 1px solid var(--color-border);
+                border-radius: var(--radius-md);
+                padding: 1rem;
+                margin: 0.85rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                font-size: 0.82rem;
+                font-weight: 700;
+              "
+            >
+              <span>Fundamentals</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Core Skills</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Tools</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Projects</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Internship</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Interview Prep</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span style="color: var(--color-primary);">Job</span>
+            </div>
+
+            <div class="cards-grid-3" style="gap: 1rem;">
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Core Skills
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  HTML5, CSS3 (Flexbox/Grid), JavaScript (ES6+),
+                  Component-based frameworks.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Tools
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Package managers (npm), Bundlers (Vite), Chrome DevTools,
+                  Git.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Interview Preparation
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  DOM manipulation, state management, asynchronous data
+                  fetching, web performance.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 3. Backend Developer -->
+          <div class="card" id="backend">
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+
+              <div>
+
+                <span
+                  class="badge badge-indigo"
+                  style="margin-bottom: 0.35rem;"
+                >
+                  Career Path
+                </span>
+
+                <h2 style="font-size: 1.6rem; margin-bottom: 0.25rem;">
+                  Backend Developer
+                </h2>
+
+                <p
+                  style="
+                    color: var(--color-text-muted);
+                    font-size: 0.9rem;
+                  "
+                >
+                  Builds server logic, RESTful APIs, database schemas,
+                  and handles authentication.
+                </p>
+
+              </div>
+
+              <span class="badge badge-indigo">
+                Career Pathway
+              </span>
+
+            </div>
+
+            <div
+              style="
+                background: var(--color-card);
+                border: 1px solid var(--color-border);
+                border-radius: var(--radius-md);
+                padding: 1rem;
+                margin: 0.85rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                font-size: 0.82rem;
+                font-weight: 700;
+              "
+            >
+              <span>Fundamentals</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Core Skills</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Tools</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Projects</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Internship</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Interview Prep</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span style="color: var(--color-primary);">Job</span>
+            </div>
+
+            <div class="cards-grid-3" style="gap: 1rem;">
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Core Skills
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Server runtimes (Node.js/Python/Java), SQL, REST API
+                  architecture, Authentication.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Tools
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Postman, PostgreSQL, Redis, Docker, Git.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Interview Preparation
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Database normalization, indexing, concurrency,
+                  API security.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 4. AI / ML Engineer -->
+          <div class="card" id="aiml">
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+
+              <div>
+
+                <span
+                  class="badge badge-purple"
+                  style="margin-bottom: 0.35rem;"
+                >
+                  Career Path
+                </span>
+
+                <h2 style="font-size: 1.6rem; margin-bottom: 0.25rem;">
+                  AI / ML Engineer
+                </h2>
+
+                <p
+                  style="
+                    color: var(--color-text-muted);
+                    font-size: 0.9rem;
+                  "
+                >
+                  Applies mathematical modeling, statistical algorithms,
+                  and deep neural networks to structured and unstructured data.
+                </p>
+
+              </div>
+
+              <span class="badge badge-indigo">
+                Career Pathway
+              </span>
+
+            </div>
+
+            <div
+              style="
+                background: var(--color-card);
+                border: 1px solid var(--color-border);
+                border-radius: var(--radius-md);
+                padding: 1rem;
+                margin: 0.85rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                font-size: 0.82rem;
+                font-weight: 700;
+              "
+            >
+              <span>Fundamentals</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Core Skills</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Tools</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Projects</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Internship</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Interview Prep</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span style="color: var(--color-primary);">Job</span>
+            </div>
+
+            <div class="cards-grid-3" style="gap: 1rem;">
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Core Skills
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Linear algebra, probability, Python (NumPy/Pandas),
+                  Scikit-Learn, PyTorch.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Tools
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Jupyter Notebooks, Google Colab, Hugging Face, Git.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Interview Preparation
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Bias-variance tradeoff, evaluation metrics (F1/ROC),
+                  loss functions, model serving.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 5. Cloud & DevOps Engineer -->
+          <div class="card" id="devops">
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+
+              <div>
+
+                <span
+                  class="badge badge-indigo"
+                  style="margin-bottom: 0.35rem;"
+                >
+                  Career Path
+                </span>
+
+                <h2 style="font-size: 1.6rem; margin-bottom: 0.25rem;">
+                  Cloud & DevOps Engineer
+                </h2>
+
+                <p
+                  style="
+                    color: var(--color-text-muted);
+                    font-size: 0.9rem;
+                  "
+                >
+                  Automates build and deployment pipelines, containerizes
+                  applications, and manages cloud infrastructure.
+                </p>
+
+              </div>
+
+              <span class="badge badge-indigo">
+                Career Pathway
+              </span>
+
+            </div>
+
+            <div
+              style="
+                background: var(--color-card);
+                border: 1px solid var(--color-border);
+                border-radius: var(--radius-md);
+                padding: 1rem;
+                margin: 0.85rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                font-size: 0.82rem;
+                font-weight: 700;
+              "
+            >
+              <span>Fundamentals</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Core Skills</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Tools</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Projects</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Internship</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span>Interview Prep</span>
+              <span style="color: #94a3b8;">↓</span>
+              <span style="color: var(--color-primary);">Job</span>
+            </div>
+
+            <div class="cards-grid-3" style="gap: 1rem;">
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Core Skills
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Linux administration, networking fundamentals,
+                  containerization, CI/CD pipeline automation.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Tools
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  Docker, GitHub Actions, Linux Bash, AWS/Azure core services.
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--color-card);
+                  padding: 0.85rem;
+                  border-radius: var(--radius-sm);
+                  border: 1px solid var(--color-border);
+                "
+              >
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Interview Preparation
+                </div>
+
+                <div
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                  "
+                >
+                  CI/CD workflow debugging, container networking,
+                  deployment strategies.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a
+            href="index.html"
+            class="logo"
+            style="color: #fff;"
+          >
+            🎓 Campus<span>X</span>
+          </a>
+
+          <div class="logo-tagline">Learn • Share • Grow</div>
+
+          <p class="footer-desc">
+            CampusX connects engineering students with academic resources,
+            structured learning roadmaps, projects, teams, and affordable
+            second-hand study material.
+          </p>
+
+          <span style="font-size: 0.78rem; color: #94a3b8;">
+            College CEP Student Project
+          </span>
+
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Career Paths</h4>
+
+          <ul class="footer-links">
+            <li><a href="#swe">Software Engineer</a></li>
+            <li><a href="#frontend">Frontend Developer</a></li>
+            <li><a href="#backend">Backend Developer</a></li>
+            <li><a href="#aiml">AI / ML Engineer</a></li>
+            <li><a href="#devops">Cloud & DevOps</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Platform</h4>
+
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="roadmap.html">Roadmaps</a></li>
+            <li><a href="pyq.html">Previous Year Papers</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="teams.html">Team Formation</a></li>
+            <li><a href="material.html">Marketplace</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Community</h4>
+
+          <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <div class="footer-bottom-badge">
+          Built for students, by students.
+        </div>
+
+        <div>
+          © 2026 CampusX. Career roadmaps provide practical learning
+          directions without placement guarantees.
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       GLOBAL SEARCH MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="searchModal">
+
+    <div class="modal-container search-modal-container">
+
+      <div class="search-input-wrapper">
+
+        <span class="search-icon-big">🔍</span>
+
+        <input
+          type="search"
+          class="search-input-field"
+          id="globalSearchInput"
+          name="globalSearch"
+          placeholder="Search roadmaps, notes, projects, teams, material..."
+          autocomplete="off"
+          maxlength="100"
+          spellcheck="false"
+        />
+
+        <button
+          type="button"
+          class="modal-close-btn"
+          data-close-modal="true"
+          aria-label="Close search"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <ul
+        class="search-results-list"
+        id="globalSearchResults"
+      ></ul>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       AUTH MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="authModal">
+
+    <div class="modal-container">
+
+      <div class="modal-header">
+
+        <div class="modal-title">
+          🎓 CampusX Account
+        </div>
+
+        <button
+          type="button"
+          class="modal-close-btn"
+          data-close-modal="true"
+          aria-label="Close account modal"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="auth-tabs">
+
+          <button
+            type="button"
+            class="auth-tab-btn active"
+            id="loginTabBtn"
+          >
+            Login
+          </button>
+
+          <button
+            type="button"
+            class="auth-tab-btn"
+            id="registerTabBtn"
+          >
+            Register
+          </button>
+
+        </div>
+
+        <form id="loginForm">
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="loginIdentifier"
+            >
+              Email / Mobile
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="loginIdentifier"
+              name="loginIdentifier"
+              placeholder="Email or Mobile"
+              autocomplete="username"
+              maxlength="254"
+              required
+            />
+
+          </div>
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="loginPassword"
+            >
+              Password
+            </label>
+
+            <input
+              type="password"
+              class="form-control"
+              id="loginPassword"
+              name="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              maxlength="128"
+              required
+            />
+
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+            style="margin-top: 0.75rem;"
+          >
+            Login
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

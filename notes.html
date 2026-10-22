@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Notes | CampusX — Learn • Share • Grow</title>
+  <meta
+    name="description"
+    content="Access semester-wise and unit-wise engineering lecture notes curated by seniors."
+  />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header-container">
+
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo">🎓 Campus<span>X</span></div>
+        <span class="logo-tagline">Learn • Share • Grow</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="nav-desktop">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="notes.html" class="nav-link active">Notes</a></li>
+        <li><a href="roadmap.html" class="nav-link">Roadmaps</a></li>
+        <li><a href="pyq.html" class="nav-link">PYQs</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="teams.html" class="nav-link">Teams</a></li>
+        <li><a href="material.html" class="nav-link">Marketplace</a></li>
+        <li><a href="career.html" class="nav-link">Career</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+
+        <button
+          type="button"
+          class="search-trigger-btn"
+          data-trigger-search="true"
+          title="Search CampusX (Ctrl+K)"
+        >
+          <span>🔍</span>
+          <span>Search</span>
+          <span class="search-shortcut">Ctrl K</span>
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary btn-sm"
+          data-open-auth="login"
+        >
+          Login
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          data-open-modal="uploadNotesModal"
+        >
+          Upload Notes
+        </button>
+
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          aria-label="Toggle Navigation Menu"
+        >
+          ☰
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Overlay -->
+  <div class="mobile-nav-overlay"></div>
+
+  <div class="mobile-nav-drawer">
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="notes.html" class="mobile-nav-link active">Notes</a></li>
+      <li><a href="roadmap.html" class="mobile-nav-link">Roadmaps</a></li>
+      <li><a href="pyq.html" class="mobile-nav-link">PYQ Papers</a></li>
+      <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+      <li><a href="teams.html" class="mobile-nav-link">Team Formation</a></li>
+      <li><a href="material.html" class="mobile-nav-link">Marketplace</a></li>
+      <li><a href="career.html" class="mobile-nav-link">Career Roadmaps</a></li>
+    </ul>
+
+    <div class="mobile-nav-actions">
+
+      <button
+        type="button"
+        class="btn btn-secondary btn-full"
+        data-open-auth="login"
+      >
+        Login
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary btn-full"
+        data-open-auth="register"
+      >
+        Join CampusX
+      </button>
+
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ==========================================================================
+         HERO BANNER
+         ========================================================================== -->
+    <section class="page-header-banner">
+      <div class="container">
+
+        <div class="page-breadcrumbs">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>Study Notes</span>
+        </div>
+
+        <span class="section-tag">Academic Knowledge Sharing</span>
+
+        <h1 style="font-size: 2.3rem; margin-bottom: 0.35rem;">
+          Study Notes Hub
+        </h1>
+
+        <p
+          style="
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+            max-width: 680px;
+          "
+        >
+          Access unit-wise handwritten notes, lecture slides, and formula sheets
+          contributed by experienced senior students.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         NOTES REPOSITORY
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+          "
+        >
+          <h3 style="font-size: 1.2rem;">Available Study Notes</h3>
+
+          <button
+            type="button"
+            class="btn btn-primary btn-sm"
+            data-open-modal="uploadNotesModal"
+          >
+            + Upload Notes
+          </button>
+        </div>
+
+        <!-- Semester Filter Tabs -->
+        <div class="filter-tabs" id="notesSemTabs">
+          <button type="button" class="tab-btn active" data-notes-sem="all">All Semesters</button>
+          <button type="button" class="tab-btn" data-notes-sem="Sem 3">Semester 3 (Current / SE)</button>
+          <button type="button" class="tab-btn" data-notes-sem="Sem 1">Semester 1</button>
+          <button type="button" class="tab-btn" data-notes-sem="Sem 2">Semester 2</button>
+          <button type="button" class="tab-btn" data-notes-sem="Sem 4">Semester 4</button>
+          <button type="button" class="tab-btn" data-notes-sem="Sem 5">Semester 5 & 6</button>
+        </div>
+
+        <!-- Filter Controls Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-group" style="flex: 2;">
+            <label class="filter-label" for="notesSearchInput">Search Subject or Topic</label>
+            <input
+              type="text"
+              class="filter-input"
+              id="notesSearchInput"
+              placeholder="e.g. AI, Cyber Security, DSA, Environmental, Economics..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="notesSubjectFilter">Subject</label>
+            <select class="filter-select" id="notesSubjectFilter">
+              <option value="all">All Subjects</option>
+              <option value="Artificial Intelligence">Artificial Intelligence</option>
+              <option value="Cyber Security">Cyber Security</option>
+              <option value="Data Structures & Algorithms">Data Structures (DSA)</option>
+              <option value="Environmental Studies">Environmental Studies</option>
+              <option value="Business Economics">Business Economics</option>
+              <option value="IT Curriculum">IT Curriculum Syllabus</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dynamic Notes Grid -->
+        <div class="cards-grid-3" id="notesListGrid">
+          <!-- Populated dynamically by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a
+            href="index.html"
+            class="logo"
+            style="color: #fff;"
+          >
+            🎓 Campus<span>X</span>
+          </a>
+
+          <div class="logo-tagline">Learn • Share • Grow</div>
+
+          <p class="footer-desc">
+            CampusX connects engineering students with academic resources,
+            structured learning roadmaps, projects, teams, and affordable
+            second-hand study material.
+          </p>
+
+          <span style="font-size: 0.78rem; color: #94a3b8;">
+            College CEP Student Project
+          </span>
+
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Subjects</h4>
+
+          <ul class="footer-links">
+            <li><a href="notes.html">Data Structures</a></li>
+            <li><a href="notes.html">DBMS</a></li>
+            <li><a href="notes.html">Operating System</a></li>
+            <li><a href="notes.html">Computer Networks</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Platform</h4>
+
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pyq.html">Previous Year Papers</a></li>
+            <li><a href="roadmap.html">Roadmaps</a></li>
+            <li><a href="teams.html">Team Formation</a></li>
+            <li><a href="material.html">Marketplace</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Community</h4>
+
+          <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <div class="footer-bottom-badge">
+          Built for students, by students.
+        </div>
+
+        <div>
+          © 2026 CampusX — Learn • Share • Grow.
+          A student-driven platform for the college community.
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       UPLOAD NOTES MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="uploadNotesModal">
+
+    <div class="modal-container">
+
+      <div class="modal-header">
+
+        <div class="modal-title">
+          📚 Upload Study Notes
+        </div>
+
+        <button
+          type="button"
+          class="modal-close-btn"
+          data-close-modal="true"
+          aria-label="Close upload notes modal"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <form id="uploadNotesForm" novalidate>
+
+          <div class="form-group">
+
+            <label class="form-label" for="noteTitle">
+              Note Title *
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="noteTitle"
+              name="title"
+              placeholder="e.g. Unit 2: Trees, Graphs & Dynamic Programming"
+              maxlength="150"
+              autocomplete="off"
+              required
+            />
+
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 0.75rem;
+            "
+          >
+
+            <div class="form-group">
+
+              <label class="form-label" for="noteSubject">
+                Subject *
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="noteSubject"
+                name="subject"
+                placeholder="e.g. Data Structures & Algorithms"
+                maxlength="100"
+                autocomplete="off"
+                required
+              />
+
+            </div>
+
+            <div class="form-group">
+
+              <label class="form-label" for="noteUnit">
+                Unit Number *
+              </label>
+
+              <select
+                class="form-control"
+                id="noteUnit"
+                name="unit"
+                required
+              >
+                <option value="Unit 1">Unit 1</option>
+                <option value="Unit 2">Unit 2</option>
+                <option value="Unit 3">Unit 3</option>
+                <option value="Unit 4">Unit 4</option>
+                <option value="Unit 5">Unit 5</option>
+                <option value="Complete Syllabus">Complete Syllabus</option>
+              </select>
+
+            </div>
+
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 0.75rem;
+            "
+          >
+
+            <div class="form-group">
+
+              <label class="form-label" for="noteYear">
+                Academic Year
+              </label>
+
+              <select
+                class="form-control"
+                id="noteYear"
+                name="academicYear"
+              >
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+
+            </div>
+
+            <div class="form-group">
+
+              <label class="form-label" for="noteSem">
+                Semester
+              </label>
+
+              <select
+                class="form-control"
+                id="noteSem"
+                name="semester"
+              >
+                <option value="Sem 1">Sem 1</option>
+                <option value="Sem 2">Sem 2</option>
+                <option value="Sem 3">Sem 3</option>
+                <option value="Sem 4">Sem 4</option>
+                <option value="Sem 5">Sem 5</option>
+                <option value="Sem 6">Sem 6</option>
+                <option value="Sem 7">Sem 7</option>
+                <option value="Sem 8">Sem 8</option>
+              </select>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label" for="noteContributor">
+              Contributor Name / Designation
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="noteContributor"
+              name="contributor"
+              placeholder="e.g. Senior Student (3rd Year CSE)"
+              maxlength="100"
+              autocomplete="name"
+            />
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label" for="noteDesc">
+              Topic Description
+            </label>
+
+            <textarea
+              class="form-control"
+              id="noteDesc"
+              name="description"
+              rows="3"
+              maxlength="1000"
+              placeholder="Key topics and theorems covered in this note..."
+            ></textarea>
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label" for="noteFileUrl">
+              Document File / Resource Link
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="noteFileUrl"
+              name="fileUrl"
+              placeholder="e.g. Sem3 Study Material/... or Drive / Cloud Link"
+              maxlength="300"
+              autocomplete="off"
+            />
+            <span class="form-helper">Enter local file path or cloud document URL (PDF / DOCX).</span>
+
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+          >
+            Upload Notes to Repository
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       GLOBAL SEARCH MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="searchModal">
+
+    <div class="modal-container search-modal-container">
+
+      <div class="search-input-wrapper">
+
+        <span class="search-icon-big">🔍</span>
+
+        <input
+          type="search"
+          class="search-input-field"
+          id="globalSearchInput"
+          name="globalSearch"
+          placeholder="Search roadmaps, notes, projects, teams, material..."
+          autocomplete="off"
+          maxlength="100"
+          spellcheck="false"
+        />
+
+        <button
+          type="button"
+          class="modal-close-btn"
+          data-close-modal="true"
+          aria-label="Close search"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <ul
+        class="search-results-list"
+        id="globalSearchResults"
+      ></ul>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       AUTH MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="authModal">
+
+    <div class="modal-container">
+
+      <div class="modal-header">
+
+        <div class="modal-title">
+          🎓 CampusX Account
+        </div>
+
+        <button
+          type="button"
+          class="modal-close-btn"
+          data-close-modal="true"
+          aria-label="Close account modal"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="auth-tabs">
+
+          <button
+            type="button"
+            class="auth-tab-btn active"
+            id="loginTabBtn"
+          >
+            Login
+          </button>
+
+          <button
+            type="button"
+            class="auth-tab-btn"
+            id="registerTabBtn"
+          >
+            Register
+          </button>
+
+        </div>
+
+        <form id="loginForm">
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="loginIdentifier"
+            >
+              Email / Mobile
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="loginIdentifier"
+              name="loginIdentifier"
+              placeholder="Email or Mobile"
+              autocomplete="username"
+              maxlength="254"
+              required
+            />
+
+          </div>
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="loginPassword"
+            >
+              Password
+            </label>
+
+            <input
+              type="password"
+              class="form-control"
+              id="loginPassword"
+              name="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              maxlength="128"
+              required
+            />
+
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+            style="margin-top: 0.75rem;"
+          >
+            Login
+          </button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" style="display: none;" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="regName">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="regName"
+              name="name"
+              placeholder="Full Name"
+              autocomplete="name"
+              maxlength="80"
+              required
+            />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regEmail">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="regEmail"
+                name="email"
+                placeholder="Email Address"
+                autocomplete="email"
+                maxlength="120"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regMobile">Mobile</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="regMobile"
+                name="mobile"
+                placeholder="Mobile Number"
+                autocomplete="tel"
+                inputmode="numeric"
+                maxlength="15"
+              />
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regBranch">Branch</label>
+              <select class="form-control" id="regBranch" name="branch">
+                <option>Information Technology</option>
+                <option>Computer Science</option>
+                <option>Electronics</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regYear">Year</label>
+              <select class="form-control" id="regYear" name="year">
+                <option>First Year</option>
+                <option>Second Year</option>
+                <option>Third Year</option>
+                <option>Final Year</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="regPassword"
+                name="password"
+                placeholder="Password"
+                autocomplete="new-password"
+                minlength="8"
+                maxlength="128"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regConfirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="regConfirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                autocomplete="new-password"
+                minlength="8"
+                maxlength="128"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">
+            Register
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

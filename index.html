@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusX — Learn • Share • Grow | Engineering Student Platform</title>
+  <meta name="description" content="CampusX connects engineering students with academic resources, structured learning roadmaps, projects, teams, and affordable second-hand study material." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo">🎓 Campus<span>X</span></div>
+        <span class="logo-tagline">Learn • Share • Grow</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-desktop">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="notes.html" class="nav-link">Notes</a></li>
+        <li><a href="#roadmaps" class="nav-link">Roadmaps</a></li>
+        <li><a href="pyq.html" class="nav-link">PYQs</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="teams.html" class="nav-link">Teams</a></li>
+        <li><a href="material.html" class="nav-link">Marketplace</a></li>
+        <li><a href="career.html" class="nav-link">Career</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button class="search-trigger-btn" data-trigger-search="true" title="Search CampusX (Ctrl+K)">
+          <span>🔍</span>
+          <span>Search</span>
+          <span class="search-shortcut">Ctrl K</span>
+        </button>
+        <button class="btn btn-secondary btn-sm" data-open-auth="login">Login</button>
+        <button class="btn btn-primary btn-sm" data-open-auth="register">Join Free</button>
+        <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Overlay -->
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer">
+    <ul class="mobile-nav-list">
+      <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+      <li><a href="#resources" class="mobile-nav-link">Resources</a></li>
+      <li><a href="#roadmaps" class="mobile-nav-link">Roadmaps</a></li>
+      <li><a href="#teams" class="mobile-nav-link">Team Formation</a></li>
+      <li><a href="material.html" class="mobile-nav-link">Marketplace</a></li>
+      <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+      <li><a href="#about" class="mobile-nav-link">About</a></li>
+      <li><a href="notes.html" class="mobile-nav-link">Study Notes</a></li>
+      <li><a href="pyq.html" class="mobile-nav-link">PYQ Papers</a></li>
+      <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+      <li><a href="career.html" class="mobile-nav-link">Career Paths</a></li>
+    </ul>
+    <div class="mobile-nav-actions">
+      <button class="btn btn-secondary btn-full" data-open-auth="login">Login</button>
+      <button class="btn btn-primary btn-full" data-open-auth="register">Create Student Profile</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         1. HERO SECTION
+         ========================================================================== -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-pill">CampusX Ecosystem</span>
+            <span>Student Technology Platform</span>
+          </div>
+          <h1 class="hero-title">
+            Learn. Share. <br />Collaborate. <span class="highlight">Grow.</span>
+          </h1>
+          <p class="hero-description">
+            CampusX connects engineering students with academic resources, structured learning roadmaps, projects, teams, and affordable second-hand study material — all in one student-driven platform.
+          </p>
+          <div class="hero-actions">
+            <a href="#resources" class="btn btn-primary btn-lg">Explore Resources →</a>
+            <button class="btn btn-secondary btn-lg" data-open-auth="register">Join CampusX</button>
+          </div>
+          <div class="hero-subtext">
+            <div class="hero-subtext-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Academic Notes</span>
+            </div>
+            <div class="hero-subtext-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>12 Subject Roadmaps</span>
+            </div>
+            <div class="hero-subtext-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Student Marketplace</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Card -->
+        <div class="hero-visual-card">
+          <div class="hero-center-box">
+            <div class="hero-center-icon">🎓</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Engineering Campus Hub</h3>
+            <p style="font-size: 0.8rem; color: var(--color-text-muted);">
+              Unified student learning and collaboration ecosystem
+            </p>
+          </div>
+          <div class="hero-floating-list">
+            <a href="notes.html" class="hero-floating-item">
+              <span class="item-icon">📚</span>
+              <span>Notes</span>
+            </a>
+            <a href="projects.html" class="hero-floating-item">
+              <span class="item-icon">💻</span>
+              <span>Projects</span>
+            </a>
+            <a href="#roadmaps" class="hero-floating-item">
+              <span class="item-icon">🧭</span>
+              <span>Roadmaps</span>
+            </a>
+            <a href="teams.html" class="hero-floating-item">
+              <span class="item-icon">🤝</span>
+              <span>Teams</span>
+            </a>
+            <a href="material.html" class="hero-floating-item" style="grid-column: 1 / -1;">
+              <span class="item-icon">♻️</span>
+              <span>Marketplace (Calculators, Drafters, PDFs)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         2. COMMUNITY ENGAGEMENT PROJECT (CEP) PILLARS
+         ========================================================================== -->
+    <section class="community-pillars-section">
+      <div class="container">
+        <div class="community-pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-icon">📚</div>
+            <div class="pillar-title">Academic Resources</div>
+            <div class="pillar-desc">
+              Organized unit-wise study notes and university examination papers shared by senior students.
+            </div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">🧭</div>
+            <div class="pillar-title">Subject Roadmaps</div>
+            <div class="pillar-desc">
+              Structured learning pathways across 12 core engineering subjects with interactive checklists.
+            </div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">🤝</div>
+            <div class="pillar-title">Hackathon Teams</div>
+            <div class="pillar-desc">
+              Peer-to-peer matchmaking to assemble multidisciplinary project and hackathon teams.
+            </div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">♻️</div>
+            <div class="pillar-title">Second-Hand Exchange</div>
+            <div class="pillar-desc">
+              On-campus peer exchange for scientific calculators, drafters, and study printouts to reduce student costs.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. RESOURCES SECTION
+         ========================================================================== -->
+    <section class="section" id="resources">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Student Library</span>
+          <h2 class="section-title">Everything Students Need to Learn & Grow</h2>
+          <p class="section-subtitle">
+            Access academic and career-focused resources shared by students and seniors.
+          </p>
+        </div>
+
+        <div class="cards-grid-3">
+          <!-- Card 1: Notes -->
+          <div class="card">
+            <div class="card-icon-box">📚</div>
+            <h3 class="card-title">Notes</h3>
+            <p class="card-desc">
+              Subject-wise notes and handwritten study material.
+            </p>
+            <div class="card-footer">
+              <span class="badge badge-indigo">Semester I - VIII</span>
+              <a href="notes.html" class="btn btn-secondary btn-sm">Explore Notes →</a>
+            </div>
+          </div>
+
+          <!-- Card 2: PYQs -->
+          <div class="card">
+            <div class="card-icon-box">📄</div>
+            <h3 class="card-title">Previous Year Papers</h3>
+            <p class="card-desc">
+              Previous examination papers and question banks.
+            </p>
+            <div class="card-footer">
+              <span class="badge badge-indigo">Question Banks</span>
+              <a href="pyq.html" class="btn btn-secondary btn-sm">View Papers →</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Projects -->
+          <div class="card">
+            <div class="card-icon-box">💻</div>
+            <h3 class="card-title">Projects</h3>
+            <p class="card-desc">
+              Academic and real-world project ideas with resources.
+            </p>
+            <div class="card-footer">
+              <span class="badge badge-purple">Mini & Major</span>
+              <a href="projects.html" class="btn btn-secondary btn-sm">Browse Projects →</a>
+            </div>
+          </div>
+
+          <!-- Card 4: Subject-Wise Roadmaps -->
+          <div class="card">
+            <div class="card-icon-box">🧭</div>
+            <h3 class="card-title">Subject-Wise Roadmaps</h3>
+            <p class="card-desc">
+              Structured learning paths from beginner to advanced.
+            </p>
+            <div class="card-footer">
+              <span class="badge badge-indigo">12 Core Subjects</span>
+              <a href="#roadmaps" class="btn btn-secondary btn-sm">View Roadmaps →</a>
+            </div>
+          </div>
+
+          <!-- Card 5: Team Formation -->
+          <div class="card">
+            <div class="card-icon-box">🤝</div>
+            <h3 class="card-title">Hackathon Team Formation</h3>
+            <p class="card-desc">
+              Find students with complementary skills and build teams.
+            </p>
+            <div class="card-footer">
+              <span class="badge badge-green">Matchmaking</span>
+              <a href="teams.html" class="btn btn-secondary btn-sm">Find Teammates →</a>
+            </div>
+          </div>
+
+          <!-- Card 6: Marketplace -->
+          <div class="card">
+            <div class="card-icon-box">♻️</div>
+            <h3 class="card-title">Second-Hand Engineering material</h3>
+            <p class="card-desc">
+              Buy and sell affordable engineering study material.
+            </p>
+            <div class="card-footer">
+              <span class="badge badge-amber">Buy • Sell • Reuse</span>
+              <a href="material.html" class="btn btn-secondary btn-sm">Explore Market →</a>
+            </div>
+          </div>
+
+          <!-- Card 7: Career Roadmaps -->
+          <div class="card" style="grid-column: 1 / -1;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="card-icon-box" style="margin-bottom: 0;">🚀</div>
+                <div>
+                  <h3 class="card-title" style="margin-bottom: 0.2rem;">Career Roadmaps</h3>
+                  <p class="card-desc" style="margin-bottom: 0;">
+                    Explore technology career paths and required skills.
+                  </p>
+                </div>
+              </div>
+              <a href="career.html" class="btn btn-primary">Explore Career Paths →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. SUBJECT-WISE ROADMAPS SECTION
+         ========================================================================== -->
+    <section class="section section-alt" id="roadmaps">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Learning Paths</span>
+          <h2 class="section-title">Subject-Wise Roadmaps</h2>
+          <p class="section-subtitle">
+            Learn what to study, in what order, and what to do next.
+          </p>
+        </div>
+
+        <div class="cards-grid-3">
+          <!-- 1. C Programming -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">📘</div>
+              <span class="badge badge-indigo">Semester 1</span>
+            </div>
+            <h3 class="card-title">C Programming</h3>
+            <p class="card-desc">Variables, conditions, loops, functions, pointers, memory allocation, and structures.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Projects</span>
+            </div>
+            <a href="roadmap.html?subject=c" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+
+          <!-- 2. C++ -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">💻</div>
+              <span class="badge badge-indigo">Semester 2</span>
+            </div>
+            <h3 class="card-title">C++</h3>
+            <p class="card-desc">OOP concepts, classes, inheritance, polymorphism, templates, and Standard Template Library (STL).</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Practice</span>
+            </div>
+            <a href="roadmap.html?subject=cpp" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+
+          <!-- 3. Java -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">☕</div>
+              <span class="badge badge-indigo">Semester 3</span>
+            </div>
+            <h3 class="card-title">Java</h3>
+            <p class="card-desc">Core Java, JVM internals, object-oriented design, multithreading, collections, and frameworks.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Projects</span>
+            </div>
+            <a href="roadmap.html?subject=java" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+
+          <!-- 4. Python -->
+          <div class="roadmap-card" style="border: 2px solid var(--color-primary);">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">🐍</div>
+              <span class="badge badge-green">Checklist Available</span>
+            </div>
+            <h3 class="card-title">Python</h3>
+            <p class="card-desc">Basics, collections, OOP, file handling, APIs, database connectivity, and automation.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Projects</span>
+            </div>
+            <a href="roadmap.html?subject=python" class="btn btn-primary btn-sm btn-full">Open Python Roadmap →</a>
+          </div>
+
+          <!-- 5. DSA -->
+          <div class="roadmap-card" style="border: 2px solid var(--color-primary);">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">⚡</div>
+              <span class="badge badge-green">Checklist Available</span>
+            </div>
+            <h3 class="card-title">DSA</h3>
+            <p class="card-desc">Asymptotic complexity, linear data structures, trees, graphs, heaps, and dynamic programming.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Practice</span>
+            </div>
+            <a href="roadmap.html?subject=dsa" class="btn btn-primary btn-sm btn-full">Open DSA Roadmap →</a>
+          </div>
+
+          <!-- 6. DBMS -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">🗄️</div>
+              <span class="badge badge-indigo">Semester 3/4</span>
+            </div>
+            <h3 class="card-title">DBMS</h3>
+            <p class="card-desc">ER models, relational algebra, SQL queries, normalization, ACID properties, and transactions.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Projects</span>
+            </div>
+            <a href="roadmap.html?subject=dbms" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+
+          <!-- 7. Operating System -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">⚙️</div>
+              <span class="badge badge-indigo">Semester 4</span>
+            </div>
+            <h3 class="card-title">Operating System</h3>
+            <p class="card-desc">Processes, CPU scheduling, synchronization, deadlocks, virtual memory, and file systems.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Practice</span>
+            </div>
+            <a href="roadmap.html?subject=os" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+
+          <!-- 8. Computer Networks -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">📡</div>
+              <span class="badge badge-indigo">Semester 5</span>
+            </div>
+            <h3 class="card-title">Computer Networks</h3>
+            <p class="card-desc">OSI & TCP/IP models, subnetting, routing algorithms, transport protocols, and socket concepts.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Practice</span>
+            </div>
+            <a href="roadmap.html?subject=cn" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+
+          <!-- 9. Web Development -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">🌐</div>
+              <span class="badge badge-green">Checklist Available</span>
+            </div>
+            <h3 class="card-title">Web Development</h3>
+            <p class="card-desc">Semantic HTML, CSS layouts, JavaScript, client routing, server APIs, and deployment.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Projects</span>
+            </div>
+            <a href="roadmap.html?subject=webdev" class="btn btn-primary btn-sm btn-full">Open Web Dev Roadmap →</a>
+          </div>
+
+          <!-- 10. AI / ML -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">🤖</div>
+              <span class="badge badge-purple">High Demand</span>
+            </div>
+            <h3 class="card-title">AI / ML</h3>
+            <p class="card-desc">Linear algebra, data handling, classical supervised/unsupervised ML, and deep learning basics.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Projects</span>
+            </div>
+            <a href="roadmap.html?subject=aiml" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+
+          <!-- 11. Cyber Security -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">🛡️</div>
+              <span class="badge badge-purple">High Demand</span>
+            </div>
+            <h3 class="card-title">Cyber Security</h3>
+            <p class="card-desc">Networking security, cryptography, common web vulnerabilities (OWASP), and defensive tools.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Practice</span>
+            </div>
+            <a href="roadmap.html?subject=cyber" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+
+          <!-- 12. Cloud Computing -->
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <div class="roadmap-subject-icon">☁️</div>
+              <span class="badge badge-purple">High Demand</span>
+            </div>
+            <h3 class="card-title">Cloud Computing</h3>
+            <p class="card-desc">Virtualization, containerization (Docker), cloud infrastructure concepts, and CI/CD pipelines.</p>
+            <div class="roadmap-flow-preview">
+              <span class="roadmap-flow-step">Beginner</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Intermediate</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Advanced</span> <span class="roadmap-flow-arrow">→</span>
+              <span class="roadmap-flow-step">Projects</span>
+            </div>
+            <a href="roadmap.html?subject=cloud" class="btn btn-secondary btn-sm btn-full">Explore Roadmap →</a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.25rem;">
+          <a href="roadmap.html" class="btn btn-primary btn-lg">Explore All 12 Subject Roadmaps & Checklists →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. STUDENT PROJECTS SECTION
+         ========================================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Hands-on Engineering</span>
+          <h2 class="section-title">Student Projects</h2>
+          <p class="section-subtitle">
+            Discover mini projects and major projects built across various technology stacks.
+          </p>
+        </div>
+
+        <div class="cards-grid-3" id="homeProjectsGrid">
+          <!-- Populated dynamically by script.js with LocalStorage & Empty State -->
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="projects.html" class="btn btn-secondary btn-lg">Explore Projects →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. HACKATHON TEAM FORMATION
+         ========================================================================== -->
+    <section class="section section-alt" id="teams">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Matchmaking</span>
+          <h2 class="section-title">Find Your Team</h2>
+          <p class="section-subtitle">
+            Build the right team. Turn ideas into projects.
+          </p>
+        </div>
+
+        <div class="cards-grid-3" id="homeTeamsGrid">
+          <!-- Populated dynamically by script.js with LocalStorage & Empty State -->
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 0.85rem; margin-top: 2rem; flex-wrap: wrap;">
+          <a href="teams.html" class="btn btn-primary btn-lg">Find Your Team →</a>
+          <button class="btn btn-secondary btn-lg" data-open-modal="createProfileModal">Create Your Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. SECOND-HAND material (MARKETPLACE PREVIEW)
+         ========================================================================== -->
+    <section class="section" id="marketplace">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Campus Marketplace</span>
+          <h2 class="section-title">Second-Hand Engineering material</h2>
+          <p class="section-subtitle">
+            <strong>Buy • Sell • Reuse</strong> — Allow students to buy and sell useful engineering material within the college community.
+          </p>
+        </div>
+
+        <!-- Buy Sell Reuse 3-Step Flow -->
+        <div class="reuse-flow-grid">
+          <div class="reuse-step-card">
+            <div class="reuse-step-number">1</div>
+            <div class="reuse-step-icon">🔍</div>
+            <h3 class="reuse-step-title">Browse material</h3>
+            <p class="reuse-step-desc">
+              Find PDF printouts, calculators and Engineering Graphics material listed by students.
+            </p>
+          </div>
+          <div class="reuse-step-card">
+            <div class="reuse-step-number">2</div>
+            <div class="reuse-step-icon">🤝</div>
+            <h3 class="reuse-step-title">Connect with Seller</h3>
+            <p class="reuse-step-desc">
+              Check the material details, price and condition, then contact the seller.
+            </p>
+          </div>
+          <div class="reuse-step-card">
+            <div class="reuse-step-number">3</div>
+            <div class="reuse-step-icon">♻️</div>
+            <h3 class="reuse-step-title">Buy & Reuse</h3>
+            <p class="reuse-step-desc">
+              Meet at a convenient campus location, complete the exchange and give the material a second life.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-grid-3" id="homeMarketGrid" style="margin-top: 1.5rem;">
+          <!-- Populated dynamically by script.js with LocalStorage & Empty State -->
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="material.html" class="btn btn-primary btn-lg">Explore material</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. SENIOR-JUNIOR KNOWLEDGE SHARING
+         ========================================================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Community Model</span>
+          <h2 class="section-title">Senior-Junior Knowledge Sharing</h2>
+          <p class="section-subtitle">
+            A student-to-student ecosystem where knowledge is passed forward.
+          </p>
+        </div>
+
+        <div class="senior-junior-box">
+          <div class="knowledge-flow-steps">
+            <div class="knowledge-step">
+              <div class="knowledge-step-icon">🎓</div>
+              <div class="knowledge-step-title">Seniors Share</div>
+              <div class="knowledge-step-desc">Notes, roadmaps & tips</div>
+            </div>
+            <span class="knowledge-arrow">→</span>
+            <div class="knowledge-step">
+              <div class="knowledge-step-icon">📖</div>
+              <div class="knowledge-step-title">Juniors Learn</div>
+              <div class="knowledge-step-desc">Structured learning paths</div>
+            </div>
+            <span class="knowledge-arrow">→</span>
+            <div class="knowledge-step">
+              <div class="knowledge-step-icon">🤝</div>
+              <div class="knowledge-step-title">Students Collaborate</div>
+              <div class="knowledge-step-desc">Teams & college projects</div>
+            </div>
+            <span class="knowledge-arrow">→</span>
+            <div class="knowledge-step">
+              <div class="knowledge-step-icon">🚀</div>
+              <div class="knowledge-step-title">Community Grows</div>
+              <div class="knowledge-step-desc">Collective engineering skills</div>
+            </div>
+          </div>
+
+          <div class="cards-grid-3" style="gap: 1rem;">
+            <div style="background: var(--color-card); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+              <h4 style="margin-bottom: 0.25rem;">Senior Notes & Study Tips</h4>
+              <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+                Seniors share verified notes and study strategies for upcoming semester examinations.
+              </p>
+            </div>
+            <div style="background: var(--color-card); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+              <h4 style="margin-bottom: 0.25rem;">Project & Hackathon Guidance</h4>
+              <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+                Guidance on choosing realistic project ideas and complementary teammate skill sets.
+              </p>
+            </div>
+            <div style="background: var(--color-card); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+              <h4 style="margin-bottom: 0.25rem;">Career & Internship Guidance</h4>
+              <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+                Honest perspectives on skills required for internships and technical interviews.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. HOW CAMPUSX WORKS
+         ========================================================================== -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Platform Overview</span>
+          <h2 class="section-title">How CampusX Works</h2>
+          <p class="section-subtitle">
+            A simple 5-step model to support your engineering journey.
+          </p>
+        </div>
+
+        <div class="how-it-works-grid">
+          <div class="platform-step-card">
+            <div class="platform-step-num">1</div>
+            <h4>Explore</h4>
+            <p>Discover notes, roadmaps, projects and material.</p>
+          </div>
+          <div class="platform-step-card">
+            <div class="platform-step-num">2</div>
+            <h4>Learn</h4>
+            <p>Follow structured roadmaps and practice skills.</p>
+          </div>
+          <div class="platform-step-card">
+            <div class="platform-step-num">3</div>
+            <h4>Connect</h4>
+            <p>Find seniors, teammates and other students.</p>
+          </div>
+          <div class="platform-step-card">
+            <div class="platform-step-num">4</div>
+            <h4>Share</h4>
+            <p>Upload resources and experiences.</p>
+          </div>
+          <div class="platform-step-card">
+            <div class="platform-step-num">5</div>
+            <h4>Grow</h4>
+            <p>Build skills, projects and professional connections.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. ABOUT CAMPUSX & COMMUNITY PRINCIPLES
+         ========================================================================== -->
+    <section class="section section-alt" id="about">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <span class="section-tag">About CampusX</span>
+          <h2 class="section-title">About CampusX</h2>
+          <p class="section-subtitle" style="font-size: 1rem; line-height: 1.65;">
+            CampusX is a student-driven platform created to make learning, collaboration and resource sharing easier for engineering students. Instead of students searching across multiple platforms for notes, roadmaps, project ideas, teammates and study material, CampusX brings these student needs into one organized ecosystem.
+          </p>
+          <p style="font-weight: 600; color: var(--color-text); margin-top: 0.85rem;">
+            Vision: Build a stronger student community where knowledge is shared, opportunities are discovered, and students grow together.
+          </p>
+        </div>
+
+        <div class="principles-banner">
+          <h3>Community Principles</h3>
+          <div class="principles-chips">
+            <div class="principle-chip">Share Knowledge</div>
+            <div class="principle-chip">Help Others</div>
+            <div class="principle-chip">Build Together</div>
+            <div class="principle-chip">Reuse Resources</div>
+            <div class="principle-chip">Learn Continuously</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. CTA BANNER
+         ========================================================================== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-title">Join CampusX</h2>
+          <p class="cta-desc">
+            Access study notes, follow structured roadmaps, find hackathon teammates, and exchange study material.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-lg" data-open-auth="register">Join CampusX</button>
+            <a href="material.html" class="btn btn-secondary btn-lg">Explore material</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       12. FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color: #fff;">
+            🎓 Campus<span>X</span>
+          </a>
+          <div class="logo-tagline">Learn • Share • Grow</div>
+          <p class="footer-desc">
+            CampusX connects engineering students with academic resources, structured learning roadmaps, projects, teams, and affordable second-hand study material.
+          </p>
+          <span style="font-size: 0.78rem; color: #94a3b8;">College CEP Student Project</span>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Academic</h4>
+          <ul class="footer-links">
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="pyq.html">Previous Year Papers</a></li>
+            <li><a href="roadmap.html?subject=python">Python Roadmap</a></li>
+            <li><a href="roadmap.html?subject=dsa">DSA Roadmap</a></li>
+            <li><a href="roadmap.html?subject=webdev">Web Development</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="teams.html">Team Formation</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="material.html">Marketplace</a></li>
+            <li><a href="career.html">Career Roadmaps</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Community</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li>
+              <a href="javascript:void(0)" id="communityGuidelinesLink" data-community-guidelines="true" role="button">
+                Community Guidelines
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-badge">
+          Built for students, by students.
+        </div>
+        <div>
+          © 2026 CampusX — Learn • Share • Grow. A student-driven platform for the college community.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+
+  <!-- Global Search Modal -->
+  <div class="modal-overlay" id="searchModal">
+    <div class="modal-container search-modal-container">
+      <div class="search-input-wrapper">
+        <span class="search-icon-big">🔍</span>
+        <input
+          type="text"
+          class="search-input-field"
+          id="globalSearchInput"
+          placeholder="Search roadmaps, notes, projects, teams, material..."
+          autocomplete="off"
+        />
+        <button class="modal-close-btn" data-close-modal="true">✕</button>
+      </div>
+      <ul class="search-results-list" id="globalSearchResults"></ul>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Login / Register) -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">🎓 CampusX Account</div>
+        <button class="modal-close-btn" data-close-modal="true">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="auth-tabs">
+          <button class="auth-tab-btn active" id="loginTabBtn">Login</button>
+          <button class="auth-tab-btn" id="registerTabBtn">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="loginIdentifier">Email / Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              id="loginIdentifier"
+              name="loginIdentifier"
+              placeholder="Email or Mobile"
+              autocomplete="username"
+              maxlength="100"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="loginPassword">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="loginPassword"
+              name="loginPassword"
+              placeholder="Password"
+              autocomplete="current-password"
+              minlength="8"
+              maxlength="128"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.75rem;">
+            Login
+          </button>
+
+          <div class="form-helper" style="text-align: center; margin-top: 0.75rem;">
+            Secure student authentication.
+          </div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" style="display: none;" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="regName">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="regName"
+              name="name"
+              placeholder="Full Name"
+              autocomplete="name"
+              maxlength="80"
+              required
+            />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regEmail">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="regEmail"
+                name="email"
+                placeholder="Email Address"
+                autocomplete="email"
+                maxlength="120"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regMobile">Mobile</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="regMobile"
+                name="mobile"
+                placeholder="Mobile Number"
+                autocomplete="tel"
+                inputmode="numeric"
+                maxlength="15"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regCollege">College</label>
+            <input
+              type="text"
+              class="form-control"
+              id="regCollege"
+              name="college"
+              placeholder="College Name"
+              autocomplete="organization"
+              maxlength="150"
+            />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regBranch">Branch</label>
+              <select
+                class="form-control"
+                id="regBranch"
+                name="branch"
+                autocomplete="organization-title"
+              >
+                <option>Information Technology</option>
+                <option>Computer Science</option>
+                <option>Electronics</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regYear">Year</label>
+              <select
+                class="form-control"
+                id="regYear"
+                name="year"
+              >
+                <option>First Year</option>
+                <option>Second Year</option>
+                <option>Third Year</option>
+                <option>Final Year</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regRole">Role</label>
+            <select
+              class="form-control"
+              id="regRole"
+              name="role"
+            >
+              <option>Student</option>
+              <option>Senior</option>
+            </select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="regPassword"
+                name="password"
+                placeholder="Password"
+                autocomplete="new-password"
+                minlength="8"
+                maxlength="128"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regConfirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="regConfirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                autocomplete="new-password"
+                minlength="8"
+                maxlength="128"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Team Profile Modal -->
+  <div class="modal-overlay" id="createProfileModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">🤝 Create Your Profile</div>
+        <button class="modal-close-btn" data-close-modal="true">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="createProfileForm">
+          <div class="form-group">
+            <label class="form-label" for="profName">Name *</label>
+            <input
+              type="text"
+              class="form-control"
+              id="profName"
+              name="name"
+              placeholder="Your Name"
+              autocomplete="name"
+              maxlength="80"
+              required
+            />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="profBranch">Branch *</label>
+              <select class="form-control" id="profBranch" name="branch" required>
+                <option>Computer Science</option>
+                <option>Information Technology</option>
+                <option>Electronics</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="profYear">Year *</label>
+              <select class="form-control" id="profYear" name="year" required>
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+                <option>4th Year</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="profRole">Role *</label>
+            <select class="form-control" id="profRole" name="role" required>
+              <option>Frontend Developer</option>
+              <option>Backend Developer</option>
+              <option>Full Stack Developer</option>
+              <option>UI/UX Designer</option>
+              <option>AI/ML Developer</option>
+              <option>Data Analyst</option>
+              <option>Cyber Security</option>
+              <option>Cloud Engineer</option>
+              <option>Hardware Engineer</option>
+              <option>Team Leader</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="profSkills">Skills (comma-separated) *</label>
+            <input
+              type="text"
+              class="form-control"
+              id="profSkills"
+              name="skills"
+              placeholder="e.g. React, Python, Git"
+              maxlength="300"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="profAbout">About / Experience</label>
+            <textarea
+              class="form-control"
+              id="profAbout"
+              name="about"
+              rows="3"
+              placeholder="Briefly describe your interests or availability..."
+              maxlength="1000"
+            ></textarea>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="profEmail">Email</label>
+              <input type="email" class="form-control" id="profEmail" name="email" placeholder="student@campusx.edu" maxlength="120" autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profPhone">Mobile / WhatsApp</label>
+              <input type="tel" class="form-control" id="profPhone" name="phone" placeholder="+91 98765 43210" maxlength="20" autocomplete="tel" />
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="profGithub">GitHub Profile URL</label>
+              <input type="url" class="form-control" id="profGithub" name="github" placeholder="https://github.com/..." maxlength="200" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profLinkedin">LinkedIn Profile URL</label>
+              <input type="url" class="form-control" id="profLinkedin" name="linkedin" placeholder="https://linkedin.com/in/..." maxlength="200" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Create Profile
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
