@@ -69,12 +69,14 @@ async function runTests() {
   }
 
   try {
-    // 1. Test GET /
-    const rootRes = await makeRequest('/');
-    assert(
-      rootRes.statusCode === 200 && rootRes.body === 'CampusX Backend is Running!',
-      'GET / returns "CampusX Backend is Running!"'
-    );
+   // 1. Test GET / serves the CampusX homepage
+const rootRes = await makeRequest('/');
+assert(
+  rootRes.statusCode === 200 &&
+  typeof rootRes.body === 'string' &&
+  rootRes.body.toLowerCase().includes('<html'),
+  'GET / serves the CampusX index.html homepage'
+);
 
     // 2. Test GET /api/status & Database Diagnostic Mode
     const statusRes = await makeRequest('/api/status');

@@ -1,47 +1,65 @@
 /**
  * CampusX Backend API Server
- * 
- * Purpose: REST API supporting CampusX (Learn • Share • Grow)
- * College Academic Resource-Sharing Platform for Students.
+ * Learn • Share • Grow
  */
 
 const path = require('path');
 const dotenv = require('dotenv');
 
-// Consistent environment variable resolution
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const express = require('express');
 const cors = require('cors');
 const db = require('./db');
-const { hashPassword, verifyPassword, createToken, requireAuth } = require('./auth');
+
+const {
+  hashPassword,
+  verifyPassword,
+  createToken,
+  requireAuth
+} = require('./auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-// Validate production environment requirements
+const PROJECT_ROOT = path.resolve(__dirname, '..');
+const FRONTEND_INDEX = path.join(PROJECT_ROOT, 'index.html');
+const MATERIALS_DIR = path.join(PROJECT_ROOT, 'Sem3 Study Material');
+
+// =============================================================================
+// PRODUCTION ENVIRONMENT VALIDATION
+// =============================================================================
+
 if (NODE_ENV === 'production') {
   const missing = [];
-  if (!process.env.DATABASE_URL || !process.env.DATABASE_URL.trim()) {
-    missing.push('DATABASE_URL (PostgreSQL / Supabase connection required)');
+
+  if (!process.env.DATABASE_URL?.trim()) {
+    missing.push('DATABASE_URL');
   }
-  if (!process.env.JWT_SECRET || process.env.JWT_SECRET === 'campusx_development_secret_key_change_in_production') {
-    missing.push('JWT_SECRET (Random strong secret required in production)');
+
+  if (
+    !process.env.JWT_SECRET ||
+    process.env.JWT_SECRET ===
+      'campusx_development_secret_key_change_in_production'
+  ) {
+    missing.push('JWT_SECRET');
   }
+
   if (missing.length > 0) {
-    console.error('❌ [CampusX Production Guard] Halting startup due to unconfigured production settings:');
-    missing.forEach(m => console.error(`   - ${m}`));
+    console.error(
+      '[CampusX] Missing required production variables:',
+      missing.join(', ')
+    );
     process.exit(1);
   }
 }
 
 // =============================================================================
-// MIDDLEWARE CONFIGURATION
+// SECURITY HEADERS
 // =============================================================================
 
-// Basic security headers
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
@@ -49,45 +67,66 @@ app.use((req, res, next) => {
   next();
 });
 
-// CORS configuration to allow local frontend tools (Live Server on 5500, Vite, static files)
+// =============================================================================
+// CORS
+// =============================================================================
+
 const allowedOrigins = process.env.CORS_ORIGIN
-  ? process.env.CORS_ORIGIN.split(',').map(o => o.trim())
+  ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
   : ['*'];
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes('*') || allowedOrigins.includes(origin)) {
+    if (
+      !origin ||
+      allowedOrigins.includes('*') ||
+      allowedOrigins.includes(origin)
+    ) {
       return callback(null, true);
     }
+
     if (NODE_ENV === 'production') {
       return callback(new Error('CORS policy: Disallowed origin'));
     }
-    return callback(null, true); // Dev-friendly fallback
+
+    return callback(null, true);
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// Parse JSON request bodies safely with size limits
+// =============================================================================
+// REQUEST BODY PARSING
+// =============================================================================
+
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 
-// Static serving for verified study materials and syllabi
-app.use('/materials', express.static(path.join(__dirname, '../Sem3 Study Material')));
-
-// Static serving for root assets and HTML pages (without overriding GET /)
-app.use(express.static(path.join(__dirname, '..'), { index: false }));
-
 // =============================================================================
-// ROUTES: STATUS & HEALTH
+// STATIC FILES
 // =============================================================================
 
-// 1. Main route (Exact required string contract)
-app.get('/', (req, res) => {
-  res.send('CampusX Backend is Running!');
+// Serve academic study materials
+app.use('/materials', express.static(MATERIALS_DIR));
+
+// Serve CSS, JavaScript, images and other frontend assets
+app.use(express.static(PROJECT_ROOT, { index: false }));
+
+// =============================================================================
+// HOMEPAGE
+// =============================================================================
+
+// Serve the actual CampusX homepage instead of the backend status message
+app.get('/', (req, res, next) => {
+  res.sendFile(FRONTEND_INDEX, err => {
+    if (err) next(err);
+  });
 });
 
-// 2. API status route (Exact required JSON contract)
+// =============================================================================
+// API STATUS AND HEALTH
+// =============================================================================
+
 app.get('/api/status', (req, res) => {
   res.json({
     success: true,
@@ -98,13 +137,13 @@ app.get('/api/status', (req, res) => {
   });
 });
 
-// 3. API health route: distinguishes server availability from DB connectivity
 app.get('/api/health', (req, res) => {
   const mem = process.memoryUsage();
   const dbStatus = db.getDatabaseStatus();
+  const isDbFailed = dbStatus.status === 'connection_failed';
 
-  res.status(dbStatus.status === 'connection_failed' ? 503 : 200).json({
-    status: dbStatus.status === 'connection_failed' ? 'degraded' : 'healthy',
+  res.status(isDbFailed ? 503 : 200).json({
+    status: isDbFailed ? 'degraded' : 'healthy',
     serverAvailable: true,
     uptimeSeconds: Math.floor(process.uptime()),
     timestamp: new Date().toISOString(),
@@ -117,13 +156,13 @@ app.get('/api/health', (req, res) => {
 });
 
 // =============================================================================
-// ROUTES: ACADEMIC NOTES
+// NOTES
 // =============================================================================
 
-// GET /api/notes
 app.get('/api/notes', async (req, res, next) => {
   try {
     const notes = await db.getAllNotes();
+
     res.json({
       success: true,
       count: notes.length,
@@ -134,10 +173,11 @@ app.get('/api/notes', async (req, res, next) => {
   }
 });
 
-// POST /api/notes
 app.post('/api/notes', async (req, res, next) => {
   try {
-    const { title, subject, unit, sem, year, contributor, desc, fileUrl } = req.body;
+    const {
+      title, subject, unit, sem, year, contributor, desc, fileUrl
+    } = req.body;
 
     if (!title || typeof title !== 'string' || !title.trim()) {
       return res.status(400).json({
@@ -161,7 +201,9 @@ app.post('/api/notes', async (req, res, next) => {
       unit: unit ? String(unit).trim().slice(0, 50) : 'Unit 1',
       sem: sem ? String(sem).trim().slice(0, 50) : 'Sem 3',
       year: year ? String(year).trim().slice(0, 50) : '2nd Year',
-      contributor: contributor ? String(contributor).trim().slice(0, 100) : 'Senior Student',
+      contributor: contributor
+        ? String(contributor).trim().slice(0, 100)
+        : 'Senior Student',
       desc: desc ? String(desc).trim().slice(0, 1000) : '',
       fileUrl: fileUrl ? String(fileUrl).trim().slice(0, 500) : ''
     });
@@ -177,13 +219,13 @@ app.post('/api/notes', async (req, res, next) => {
 });
 
 // =============================================================================
-// ROUTES: PROJECTS
+// PROJECTS
 // =============================================================================
 
-// GET /api/projects
 app.get('/api/projects', async (req, res, next) => {
   try {
     const projects = await db.getAllProjects();
+
     res.json({
       success: true,
       count: projects.length,
@@ -194,10 +236,12 @@ app.get('/api/projects', async (req, res, next) => {
   }
 });
 
-// POST /api/projects
 app.post('/api/projects', async (req, res, next) => {
   try {
-    const { title, category, techStack, description, githubUrl, liveUrl, teamLead, teamSize } = req.body;
+    const {
+      title, category, techStack, description,
+      githubUrl, liveUrl, teamLead, teamSize
+    } = req.body;
 
     if (!title || typeof title !== 'string' || !title.trim()) {
       return res.status(400).json({
@@ -209,12 +253,20 @@ app.post('/api/projects', async (req, res, next) => {
 
     const newProject = await db.addProject({
       title: title.trim().slice(0, 200),
-      category: category ? String(category).trim().slice(0, 100) : 'Web Development',
-      techStack: Array.isArray(techStack) ? techStack.slice(0, 10).map(t => String(t).slice(0, 50)) : [],
-      description: description ? String(description).trim().slice(0, 1500) : '',
+      category: category
+        ? String(category).trim().slice(0, 100)
+        : 'Web Development',
+      techStack: Array.isArray(techStack)
+        ? techStack.slice(0, 10).map(item => String(item).slice(0, 50))
+        : [],
+      description: description
+        ? String(description).trim().slice(0, 1500)
+        : '',
       githubUrl: githubUrl ? String(githubUrl).trim().slice(0, 300) : '',
       liveUrl: liveUrl ? String(liveUrl).trim().slice(0, 300) : '',
-      teamLead: teamLead ? String(teamLead).trim().slice(0, 100) : 'Student',
+      teamLead: teamLead
+        ? String(teamLead).trim().slice(0, 100)
+        : 'Student',
       teamSize: Number(teamSize) || 1
     });
 
@@ -229,13 +281,13 @@ app.post('/api/projects', async (req, res, next) => {
 });
 
 // =============================================================================
-// ROUTES: PEER TEAMS
+// TEAMS
 // =============================================================================
 
-// GET /api/teams
 app.get('/api/teams', async (req, res, next) => {
   try {
     const teams = await db.getAllTeams();
+
     res.json({
       success: true,
       count: teams.length,
@@ -246,10 +298,12 @@ app.get('/api/teams', async (req, res, next) => {
   }
 });
 
-// POST /api/teams
 app.post('/api/teams', async (req, res, next) => {
   try {
-    const { title, category, lookingFor, description, contactEmail, memberCount, status } = req.body;
+    const {
+      title, category, lookingFor, description,
+      contactEmail, memberCount, status
+    } = req.body;
 
     if (!title || typeof title !== 'string' || !title.trim()) {
       return res.status(400).json({
@@ -259,7 +313,11 @@ app.post('/api/teams', async (req, res, next) => {
       });
     }
 
-    if (!contactEmail || typeof contactEmail !== 'string' || !contactEmail.includes('@')) {
+    if (
+      !contactEmail ||
+      typeof contactEmail !== 'string' ||
+      !contactEmail.includes('@')
+    ) {
       return res.status(400).json({
         success: false,
         error: 'Validation Error',
@@ -269,11 +327,19 @@ app.post('/api/teams', async (req, res, next) => {
 
     const newTeam = await db.addTeam({
       title: title.trim().slice(0, 200),
-      category: category ? String(category).trim().slice(0, 100) : 'Hackathon',
-      lookingFor: lookingFor ? String(lookingFor).trim().slice(0, 200) : 'Teammates',
-      description: description ? String(description).trim().slice(0, 1500) : '',
+      category: category
+        ? String(category).trim().slice(0, 100)
+        : 'Hackathon',
+      lookingFor: lookingFor
+        ? String(lookingFor).trim().slice(0, 200)
+        : 'Teammates',
+      description: description
+        ? String(description).trim().slice(0, 1500)
+        : '',
       contactEmail: contactEmail.trim().toLowerCase().slice(0, 150),
-      memberCount: memberCount ? String(memberCount).trim().slice(0, 50) : '1 Member',
+      memberCount: memberCount
+        ? String(memberCount).trim().slice(0, 50)
+        : '1 Member',
       status: status ? String(status).trim().slice(0, 50) : 'Open'
     });
 
@@ -288,13 +354,13 @@ app.post('/api/teams', async (req, res, next) => {
 });
 
 // =============================================================================
-// ROUTES: STUDY MATERIALS & MARKETPLACE
+// STUDY MATERIALS
 // =============================================================================
 
-// GET /api/materials
 app.get('/api/materials', async (req, res, next) => {
   try {
     const materials = await db.getAllMaterials();
+
     res.json({
       success: true,
       count: materials.length,
@@ -305,10 +371,12 @@ app.get('/api/materials', async (req, res, next) => {
   }
 });
 
-// POST /api/materials
 app.post('/api/materials', async (req, res, next) => {
   try {
-    const { title, category, condition, price, contactPhone, description, sellerName } = req.body;
+    const {
+      title, category, condition, price,
+      contactPhone, description, sellerName
+    } = req.body;
 
     if (!title || typeof title !== 'string' || !title.trim()) {
       return res.status(400).json({
@@ -320,12 +388,22 @@ app.post('/api/materials', async (req, res, next) => {
 
     const newMaterial = await db.addMaterial({
       title: title.trim().slice(0, 200),
-      category: category ? String(category).trim().slice(0, 100) : 'textbooks',
-      condition: condition ? String(condition).trim().slice(0, 50) : 'Good',
-      price: Number(price) || 0.00,
-      contactPhone: contactPhone ? String(contactPhone).trim().slice(0, 50) : '',
-      description: description ? String(description).trim().slice(0, 1500) : '',
-      sellerName: sellerName ? String(sellerName).trim().slice(0, 100) : 'Student Seller'
+      category: category
+        ? String(category).trim().slice(0, 100)
+        : 'textbooks',
+      condition: condition
+        ? String(condition).trim().slice(0, 50)
+        : 'Good',
+      price: Number(price) || 0,
+      contactPhone: contactPhone
+        ? String(contactPhone).trim().slice(0, 50)
+        : '',
+      description: description
+        ? String(description).trim().slice(0, 1500)
+        : '',
+      sellerName: sellerName
+        ? String(sellerName).trim().slice(0, 100)
+        : 'Student Seller'
     });
 
     res.status(201).json({
@@ -339,10 +417,9 @@ app.post('/api/materials', async (req, res, next) => {
 });
 
 // =============================================================================
-// ROUTES: AUTHENTICATION
+// AUTHENTICATION
 // =============================================================================
 
-// POST /api/auth/register
 app.post('/api/auth/register', async (req, res, next) => {
   try {
     const { name, email, password, role, branch, year, college } = req.body;
@@ -372,6 +449,7 @@ app.post('/api/auth/register', async (req, res, next) => {
     }
 
     const existing = await db.findUserByEmail(email);
+
     if (existing) {
       return res.status(409).json({
         success: false,
@@ -381,6 +459,7 @@ app.post('/api/auth/register', async (req, res, next) => {
     }
 
     const passwordHash = hashPassword(password);
+
     const user = await db.registerUser({
       name: name.trim().slice(0, 100),
       email: email.trim().toLowerCase().slice(0, 150),
@@ -388,7 +467,9 @@ app.post('/api/auth/register', async (req, res, next) => {
       role: role ? String(role).slice(0, 50) : 'Student Member',
       branch: branch ? String(branch).slice(0, 50) : 'Engineering',
       year: year ? String(year).slice(0, 50) : 'SE',
-      college: college ? String(college).slice(0, 150) : 'Engineering College'
+      college: college
+        ? String(college).slice(0, 150)
+        : 'Engineering College'
     });
 
     const token = createToken({
@@ -409,7 +490,6 @@ app.post('/api/auth/register', async (req, res, next) => {
   }
 });
 
-// POST /api/auth/login
 app.post('/api/auth/login', async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -422,7 +502,6 @@ app.post('/api/auth/login', async (req, res, next) => {
       });
     }
 
-    // Generic error message to prevent account enumeration
     const genericAuthError = {
       success: false,
       error: 'Invalid Credentials',
@@ -430,12 +509,14 @@ app.post('/api/auth/login', async (req, res, next) => {
     };
 
     const user = await db.findUserByEmail(email);
+
     if (!user || (!user.password_hash && !user.passwordHash)) {
       return res.status(401).json(genericAuthError);
     }
 
     const hash = user.password_hash || user.passwordHash;
     const isValid = verifyPassword(password, hash);
+
     if (!isValid) {
       return res.status(401).json(genericAuthError);
     }
@@ -467,7 +548,6 @@ app.post('/api/auth/login', async (req, res, next) => {
   }
 });
 
-// GET /api/auth/me (Protected route)
 app.get('/api/auth/me', requireAuth, (req, res) => {
   res.json({
     success: true,
@@ -476,10 +556,9 @@ app.get('/api/auth/me', requireAuth, (req, res) => {
 });
 
 // =============================================================================
-// ROUTE HANDLERS: 404 & ERRORS
+// 404 HANDLER
 // =============================================================================
 
-// Handle unknown routes
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -487,31 +566,49 @@ app.use((req, res) => {
   });
 });
 
-// Global error handling middleware (Never exposes stack traces in production)
+// =============================================================================
+// GLOBAL ERROR HANDLER
+// =============================================================================
+
 app.use((err, req, res, next) => {
-  const statusCode = err.status || (err instanceof SyntaxError && err.type === 'entity.parse.failed' ? 400 : 500);
+  const statusCode =
+    err.status ||
+    (err instanceof SyntaxError && err.type === 'entity.parse.failed'
+      ? 400
+      : 500);
+
   if (NODE_ENV !== 'test') {
     console.error(`[CampusX API Error ${statusCode}]:`, err.message);
   }
 
   res.status(statusCode).json({
     success: false,
-    error: statusCode === 400 ? 'Bad Request' : (statusCode === 500 ? 'Internal Server Error' : err.name || 'Error'),
-    message: NODE_ENV === 'production' && statusCode === 500
-      ? 'An unexpected error occurred on the server.'
-      : err.message
+    error:
+      statusCode === 400
+        ? 'Bad Request'
+        : statusCode === 500
+          ? 'Internal Server Error'
+          : err.name || 'Error',
+    message:
+      NODE_ENV === 'production' && statusCode === 500
+        ? 'An unexpected error occurred on the server.'
+        : err.message
   });
 });
 
 // =============================================================================
-// START SERVER & GRACEFUL SHUTDOWN
+// START SERVER
 // =============================================================================
+
 const server = app.listen(PORT, () => {
-  console.log(`🚀 CampusX backend running at http://localhost:${PORT}`);
+  console.log(`CampusX server running on port ${PORT}`);
+  console.log(`Environment: ${NODE_ENV}`);
+  console.log(`Homepage: ${FRONTEND_INDEX}`);
 });
 
 process.on('SIGTERM', () => {
-  console.log('🛑 SIGTERM received. Shutting down CampusX server gracefully...');
+  console.log('SIGTERM received. Shutting down CampusX server...');
+
   server.close(() => {
     process.exit(0);
   });
